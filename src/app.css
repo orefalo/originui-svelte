@@ -4,6 +4,7 @@
 
 @layer base {
 	:root {
+		--svelte-color: 12 93% 43%;
 		--background: 0 0% 100%;
 		--foreground: 240 10% 3.9%;
 		--card: 0 0% 100%;
@@ -26,6 +27,7 @@
 		--radius: 0.5rem;
 	}
 	.dark {
+		--svelte-color: 12 94% 64%;
 		--background: 240 10% 3.9%;
 		--foreground: 240 4.8% 95.9%;
 		--card: 240 10% 3.9%;

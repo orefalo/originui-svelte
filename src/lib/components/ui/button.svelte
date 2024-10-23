@@ -1,7 +1,6 @@
 <script lang="ts" module>
 	import { type VariantProps, tv } from 'tailwind-variants';
 	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
-
 	import type { WithElementRef } from 'bits-ui';
 
 	export const buttonVariants = tv({
@@ -39,13 +38,11 @@
 		WithElementRef<HTMLAnchorAttributes> & {
 			variant?: ButtonVariant;
 			size?: ButtonSize;
-			icon?: Snippet;
 		};
 </script>
 
 <script lang="ts">
 	import { cn } from '$lib/utils.js';
-	import type { Snippet } from 'svelte';
 
 	let {
 		class: className,
@@ -55,20 +52,12 @@
 		href = undefined,
 		type = 'button',
 		children,
-		icon,
 		...restProps
 	}: ButtonProps = $props();
 </script>
 
 {#if href}
-	<a
-		bind:this={ref}
-		class={cn(buttonVariants({ variant, size, className }))}
-		{href}
-		{...restProps}
-		data-button
-	>
-		{@render icon?.()}
+	<a bind:this={ref} class={cn(buttonVariants({ variant, size, className }))} {href} {...restProps}>
 		{@render children?.()}
 	</a>
 {:else}
@@ -76,20 +65,8 @@
 		bind:this={ref}
 		class={cn(buttonVariants({ variant, size, className }))}
 		{type}
-		data-button
 		{...restProps}
 	>
-		{@render icon?.()}
 		{@render children?.()}
 	</button>
 {/if}
-
-<style lang="postcss">
-	[data-button]:global(:has(svg)) {
-		@apply gap-1;
-
-		& :global(svg) {
-			@apply bottom-0 size-5;
-		}
-	}
-</style>

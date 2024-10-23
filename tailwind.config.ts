@@ -1,12 +1,12 @@
 import type { Config } from 'tailwindcss';
 import tailwindCssAnimate from 'tailwindcss-animate';
-
+import defaultTheme from 'tailwindcss/defaultTheme';
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-sans)']
+				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans]
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -14,6 +14,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			colors: {
+				svelte: 'hsl(var(--svelte-color))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
