@@ -5,34 +5,6 @@
 <main>
 	<div class="px-4 sm:px-6">
 		<div class="mx-auto w-full max-w-3xl">
-			<div class="mb-4">
-				<p
-					class="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-background px-3 py-1 text-sm font-medium text-foreground shadow-sm shadow-black/[.12] dark:bg-accent"
-				>
-					<span class="mr-3 flex shrink-0 border-r border-border pr-3">
-						<svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="none">
-							<path
-								class="fill-zinc-500"
-								fill-rule="evenodd"
-								d="M10.958.713a1 1 0 0 0-1.916 0l-.999 3.33-3.33 1a1 1 0 0 0 0 1.915l3.33.999 1 3.33a1 1 0 0 0 1.915 0l.999-3.33 3.33-1a1 1 0 0 0 0-1.915l-3.33-.999-.999-3.33Z"
-								clip-rule="evenodd"
-							/>
-							<path
-								class="fill-zinc-400"
-								d="m4.365 11.31.079.212.212.08 1.68.635a.256.256 0 0 1 .164.24.256.256 0 0 1-.163.238l-1.68.635-.213.08-.08.213-.63 1.692v.001a.25.25 0 0 1-.234.164.25.25 0 0 1-.233-.164l-.631-1.693-.08-.213-.212-.08-1.68-.635a.256.256 0 0 1-.164-.239c0-.108.067-.203.163-.24l1.68-.634.213-.08.08-.213.63-1.692c.018-.046.083-.117.234-.117.15 0 .217.07.233.116v.001l.632 1.692Z"
-							/>
-						</svg>
-					</span>
-
-					<span>
-						New components whenever
-						<a class="underline" href="https://originui.com/" rel="noreferrer">Origin UI</a>
-						releases
-						<span class="text-svelte text-xs inline-block"> + x </span>
-					</span>
-				</p>
-			</div>
-
 			<div class="mb-16">
 				<h1
 					class="mx-auto mb-4 max-w-3xl text-4xl/[1.1] font-extrabold tracking-tight text-foreground md:text-5xl/[1.1]"
