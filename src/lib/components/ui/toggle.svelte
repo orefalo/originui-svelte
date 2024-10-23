@@ -1,10 +1,9 @@
 <script lang="ts" module>
 	import { type VariantProps, tv } from 'tailwind-variants';
-	import type { WithElementRef, ToggleRootProps } from 'bits-ui';
+	import type { ToggleRootProps } from 'bits-ui';
 
-	const toggleVariants = tv({
+	export const toggleVariants = tv({
 		base: 'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground',
-
 		variants: {
 			variant: {
 				default: 'bg-transparent',
@@ -25,7 +24,7 @@
 
 	export type ToggleVariant = VariantProps<typeof toggleVariants>['variant'];
 	export type ToggleSize = VariantProps<typeof toggleVariants>['size'];
-
+	export type ToggleVariants = VariantProps<typeof toggleVariants>;
 	export type ToggleProps = ToggleRootProps & {
 		variant?: ToggleVariant;
 		size?: ToggleSize;
