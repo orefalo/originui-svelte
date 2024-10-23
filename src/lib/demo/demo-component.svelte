@@ -8,7 +8,7 @@
 		directory,
 		componentName,
 		class: className
-	}: { directory: string; componentName: string; class: string } = $props();
+	}: { directory: string; componentName: string; class?: string } = $props();
 </script>
 
 <div class={cn('group/item relative', className)}>
