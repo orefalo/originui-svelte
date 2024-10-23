@@ -1,0 +1,59 @@
+<script lang="ts">
+	// Dependencies: pnpm install lucide-svelte
+
+	import Label from '$lib/components/ui/label.svelte';
+	import Input from '$lib/components/ui/input.svelte';
+	import LoaderCircle from 'lucide-svelte/icons/loader-circle';
+	import Mic from 'lucide-svelte/icons/mic';
+	import Search from 'lucide-svelte/icons/search';
+
+	let inputValue = $state('');
+	let isLoading = $state(false);
+	let timer = $state<ReturnType<typeof setTimeout> | null>(null);
+
+	$effect(() => {
+		if (inputValue) {
+			isLoading = true;
+			timer = setTimeout(() => {
+				isLoading = false;
+			}, 500);
+		}
+
+		return () => timer && clearTimeout(timer);
+	});
+</script>
+
+<div class="space-y-2">
+	<Label for="input-27">Search input with loader</Label>
+	<div class="relative">
+		<Input
+			id="input-27"
+			class="peer pe-9 ps-9"
+			placeholder="Search..."
+			type="search"
+			bind:value={inputValue}
+		/>
+		<div
+			class="pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-3 text-muted-foreground/80 peer-disabled:opacity-50"
+		>
+			{#if isLoading}
+				<LoaderCircle
+					class="animate-spin"
+					size={16}
+					stroke-width={2}
+					aria-hidden="true"
+					role="presentation"
+				/>
+			{:else}
+				<Search size={16} stroke-width={2} aria-hidden="true" />
+			{/if}
+		</div>
+		<button
+			class="absolute inset-y-px end-px flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 ring-offset-background transition-shadow hover:text-foreground focus-visible:border focus-visible:border-ring focus-visible:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
+			aria-label="Press to speak"
+			type="submit"
+		>
+			<Mic size={16} stroke-width={2} aria-hidden="true" />
+		</button>
+	</div>
+</div>
