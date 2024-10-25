@@ -2,8 +2,7 @@
 	// Dependencies: pnpm install bits-ui
 
 	import { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';
-	import Button from '../ui/button.svelte';
-	import Toggle from '../ui/toggle.svelte';
+
 	const options = [
 		{
 			value: 'left',
@@ -18,6 +17,7 @@
 			label: 'Right'
 		}
 	];
+
 	let value = $state(options[0].value);
 </script>
 

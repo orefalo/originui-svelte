@@ -41,7 +41,6 @@
 		size = 'default',
 		pressed = $bindable(false),
 		ref = $bindable(null),
-		id = '',
 		...restProps
 	}: ToggleProps = $props();
 </script>

@@ -9,7 +9,7 @@
 	import IconGithub from '~icons/ri/github-fill';
 </script>
 
-<div class="flex flex-col gap-2 w-full">
+<div class="flex w-full flex-col gap-2">
 	<Button variant="outline">
 		<IconGoogle
 			class="me-3 text-[#DB4437] dark:text-white/60"

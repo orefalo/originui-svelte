@@ -11,6 +11,7 @@
 </script>
 
 {#await highlightedCode then value}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html value}
 {/await}
 

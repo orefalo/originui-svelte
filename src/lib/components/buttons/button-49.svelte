@@ -39,7 +39,7 @@
 		>
 			{#if previewUrl}
 				<img
-					class="h-full w-full absolute inset-0 object-cover"
+					class="absolute inset-0 h-full w-full object-cover"
 					src={previewUrl}
 					alt="Preview of uploaded file"
 				/>
