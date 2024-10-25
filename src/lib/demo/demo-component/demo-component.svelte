@@ -21,7 +21,7 @@
 {#snippet actionButtons({ source }: { source: string })}
 	<div
 		class={cn(
-			'absolute top-2 right-2 transition-colors z-10 flex items-center gap-x-2 bg-background/30 backdrop-blur-sm rounded-lg border border-transparent',
+			'absolute right-2 top-2 z-10 flex items-center gap-x-2 rounded-lg border border-transparent bg-background/30 backdrop-blur-sm transition-colors',
 			showCode && 'border border-input',
 			!showCode &&
 				'lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100 '
@@ -33,28 +33,22 @@
 	</div>
 {/snippet}
 
-<div
-	class={cn('group/item relative ', className)}
-	data-preview-code={showCode ? 'true' : undefined}
->
+<div class={cn('group/item', className)} data-preview-code={showCode ? 'true' : undefined}>
 	{#await readComponent(directory, componentName)}
-		<div class="flex items-center justify-center h-40 text-muted-foreground">
+		<div class="flex h-40 items-center justify-center text-muted-foreground">
 			<p class="text-sm font-medium">Loading...</p>
 		</div>
 	{:then { Component, source }}
 		{#if Component && source}
 			{@render actionButtons({ source })}
-
 			{#if showCode}
 				<CodePreview code={source} />
 			{:else}
-				<div class="text-left">
-					<Component />
-				</div>
+				<Component />
 			{/if}
 		{:else}
 			<div
-				class="flex flex-col items-center text-muted-foreground text-sm text-center h-full justify-center"
+				class="flex h-full flex-col items-center justify-center text-center text-sm text-muted-foreground"
 			>
 				<p>Component not available</p>
 				<a
@@ -66,7 +60,7 @@
 			</div>
 		{/if}
 	{:catch error}
-		<div class="flex items-center justify-center h-40 text-destructive">
+		<div class="flex h-40 items-center justify-center text-destructive">
 			<p class="text-sm font-medium">Error: {error.message}</p>
 		</div>
 	{/await}

@@ -20,14 +20,8 @@
 >
 	{isExpanded ? 'Show less' : 'Show more'}
 	{#if isExpanded}
-		<IconChevronUp class="-me-1 ms-1" width="16" height="16" stroke-width="2" aria-hidden="true" />
+		<IconChevronUp class="-me-1 ms-1" size={16} stroke-width="2" aria-hidden="true" />
 	{:else}
-		<IconChevronDown
-			class="-me-1 ms-1"
-			width="16"
-			height="16"
-			stroke-width="2"
-			aria-hidden="true"
-		/>
+		<IconChevronDown class="-me-1 ms-1" size={16} stroke-width="2" aria-hidden="true" />
 	{/if}
 </Button>

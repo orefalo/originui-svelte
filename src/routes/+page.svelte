@@ -12,15 +12,15 @@
 					Beautiful UI components built with Tailwind CSS and
 					<span class="text-svelte"> Svelte </span>
 				</h1>
-				<p class="text-lg text-muted-foreground mb-4">
+				<p class="mb-4 text-lg text-muted-foreground">
 					Origin UI - Svelte is an extensive collection of copy-and-paste components for quickly
 					building app UIs. It's free, open-source, and ready to drop into your projects.
 				</p>
 				<p
-					class="text-accent-foreground w-fit text-sm max-w-prose text-pretty border-t border-border pt-4"
+					class="w-fit max-w-prose text-pretty border-t border-border pt-4 text-sm text-accent-foreground"
 				>
 					This project is not affiliated with the original <a
-						class="underline text-svelte"
+						class="text-svelte underline"
 						href="https://originui.com/"
 						rel="noreferrer">Origin UI</a
 					>. <br />

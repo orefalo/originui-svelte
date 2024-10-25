@@ -6,12 +6,6 @@
 </script>
 
 <Button variant="link">
-	<IconChevronLeft
-		class="me-1 opacity-60"
-		width="16"
-		height="16"
-		stroke-width="2"
-		aria-hidden="true"
-	/>
+	<IconChevronLeft class="me-1 opacity-60" size={16} stroke-width="2" aria-hidden="true" />
 	Go back
 </Button>

@@ -9,7 +9,7 @@
 
 <Button variant="ghost" class="h-auto p-0 hover:bg-transparent">
 	<enhanced:img
-		class="rounded-full size-[40px]"
+		class="size-[40px] rounded-full"
 		src="/static/avatar.jpg"
 		alt="Profile image"
 		loading="lazy"

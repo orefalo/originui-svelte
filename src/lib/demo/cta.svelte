@@ -8,7 +8,7 @@
 	<p class="mb-6 text-muted-foreground">
 		Suggest a component or improvements you'd like to see & check out the original Origin UI!
 	</p>
-	<div class="flex items-center justify-center gap-4 flex-wrap">
+	<div class="flex flex-wrap items-center justify-center gap-4">
 		<a
 			class="inline-flex h-9 items-center justify-center whitespace-nowrap rounded-full bg-secondary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm shadow-black/[.04] transition-shadow hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-input disabled:pointer-events-none disabled:opacity-50"
 			href="https://github.com/max-got/originui-svelte/discussions"

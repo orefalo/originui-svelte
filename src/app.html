@@ -1,20 +1,21 @@
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-48x48.png" sizes="48x48" />
+		<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
+		<link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Origin UI - Svelte" />
+		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		%sveltekit.head%
+	</head>
 
-<head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-48x48.png" sizes="48x48" />
-	<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
-	<link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="Origin UI - Svelte" />
-	<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	%sveltekit.head%
-</head>
-
-<body class="bg-background font-sans antialiased overflow-y-scroll" data-sveltekit-preload-data="hover">
-	<div>%sveltekit.body%</div>
-</body>
-
+	<body
+		class="overflow-y-scroll bg-background font-sans antialiased"
+		data-sveltekit-preload-data="hover"
+	>
+		<div>%sveltekit.body%</div>
+	</body>
 </html>

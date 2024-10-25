@@ -60,13 +60,13 @@ export function useLocale(options: LocaleOptions = {}): LocaleManager {
 	<Label class="text-sm font-medium text-foreground">Date input</Label>
 	<DateField.Root locale={localeCtx.locale}>
 		<DateField.Input
-			class="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/[.04] ring-offset-background transition-shadow focus-within:border-ring data-[disabled]:opacity-50 focus-within:outline-none focus-within:ring-2 focus-within:ring-ring/30 focus-within:ring-offset-2"
+			class="relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-lg border border-input bg-background px-3 py-2 text-sm shadow-sm shadow-black/[.04] ring-offset-background transition-shadow focus-within:border-ring focus-within:outline-none focus-within:ring-2 focus-within:ring-ring/30 focus-within:ring-offset-2 data-[disabled]:opacity-50"
 		>
 			{#snippet children({ segments })}
 				{#each segments as segment}
 					<DateField.Segment
 						part={segment.part}
-						class="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 data-[disabled]:cursor-not-allowed focus:bg-accent data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 focus:aria-[valuetext=Empty]:text-foreground focus:text-foreground data-[invalid]:focus:data-[placeholder]:text-destructive-foreground data-[invalid]:focus:text-destructive-foreground data-[invalid]:aria-[valuetext=Empty]:text-destructive data-[invalid]:text-destructive aria-[valuetext=Empty]:text-muted-foreground/70 data-[segment=literal]:text-muted-foreground/70 data-[disabled]:opacity-50"
+						class="inline rounded p-0.5 text-foreground caret-transparent outline outline-0 focus:bg-accent focus:text-foreground aria-[valuetext=Empty]:text-muted-foreground/70 focus:aria-[valuetext=Empty]:text-foreground data-[disabled]:cursor-not-allowed data-[invalid]:data-[focused]:bg-destructive data-[type=literal]:px-0 data-[invalid]:text-destructive data-[segment=literal]:text-muted-foreground/70 data-[disabled]:opacity-50 data-[invalid]:focus:data-[placeholder]:text-destructive-foreground data-[invalid]:focus:text-destructive-foreground data-[invalid]:aria-[valuetext=Empty]:text-destructive"
 					>
 						{segment.value}
 					</DateField.Segment>
