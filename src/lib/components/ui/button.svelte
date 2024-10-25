@@ -20,8 +20,8 @@
 			},
 			size: {
 				default: 'h-9 px-4 py-2',
-				sm: 'h-8 rounded-md px-3 text-xs',
-				lg: 'h-10 rounded-md px-8',
+				sm: 'h-8 rounded-lg px-3 text-xs',
+				lg: 'h-10 rounded-lg px-8',
 				icon: 'h-9 w-9'
 			}
 		},
@@ -49,24 +49,17 @@
 		variant = 'default',
 		size = 'default',
 		ref = $bindable(null),
-		href = undefined,
 		type = 'button',
 		children,
 		...restProps
 	}: ButtonProps = $props();
 </script>
 
-{#if href}
-	<a bind:this={ref} class={cn(buttonVariants({ variant, size, className }))} {href} {...restProps}>
-		{@render children?.()}
-	</a>
-{:else}
-	<button
-		bind:this={ref}
-		class={cn(buttonVariants({ variant, size, className }))}
-		{type}
-		{...restProps}
-	>
-		{@render children?.()}
-	</button>
-{/if}
+<button
+	bind:this={ref}
+	{type}
+	class={cn(buttonVariants({ variant, size, className }))}
+	{...restProps}
+>
+	{@render children?.()}
+</button>
