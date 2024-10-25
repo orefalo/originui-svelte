@@ -8,8 +8,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
-				mono: ['JetBrains Mono Variable', ...defaultTheme.fontFamily.mono]
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+				mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
