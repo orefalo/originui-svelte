@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import '@fontsource-variable/inter';
+	import '@fontsource-variable/jetbrains-mono';
 
 	import { Tooltip } from 'bits-ui';
 	import Header from '$lib/demo/header.svelte';

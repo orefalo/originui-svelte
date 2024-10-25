@@ -8,7 +8,7 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	let { componentSource }: { componentSource: string } = $props();
+	let { componentSource, class: className }: { componentSource: string; class?: string } = $props();
 	let copied = $state(false);
 
 	const handleCopy = async () => {
@@ -22,12 +22,7 @@
 	};
 </script>
 
-<div
-	class={cn(
-		'absolute right-2 top-2 transition-opacity',
-		!copied && 'lg:opacity-0 lg:group-focus-within/item:opacity-100 lg:group-hover/item:opacity-100'
-	)}
->
+<div class={cn(className)}>
 	<TooltipProvider>
 		<Tooltip>
 			<TooltipTrigger
