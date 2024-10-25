@@ -2,14 +2,19 @@
 	import { cn } from '$lib/utils.js';
 	import CopyButton from '../copy-button.svelte';
 	import ViewToggleButton from './demo-view-toggle-button.svelte';
-	import { readComponent } from './readComponentSource.js';
+
 	import CodePreview from '$lib/demo/code-preview.svelte';
+	import type { Component as ComponentType } from 'svelte';
 
 	let {
-		directory,
-		componentName,
+		Component,
+		componentSource,
 		class: className
-	}: { directory: string; componentName: string; class?: string } = $props();
+	}: {
+		Component: ComponentType | null;
+		componentSource: string | null;
+		class?: string;
+	} = $props();
 
 	let showCode = $state(false);
 
@@ -34,34 +39,21 @@
 {/snippet}
 
 <div class={cn('group/item', className)} data-preview-code={showCode ? 'true' : undefined}>
-	{#await readComponent(directory, componentName)}
-		<div class="flex h-40 items-center justify-center text-muted-foreground">
-			<p class="text-sm font-medium">Loading...</p>
-		</div>
-	{:then { Component, source }}
-		{#if Component && source}
-			{@render actionButtons({ source })}
-			{#if showCode}
-				<CodePreview code={source} />
-			{:else}
-				<Component />
-			{/if}
+	{#if Component && componentSource}
+		{@render actionButtons({ source: componentSource })}
+		{#if showCode}
+			<CodePreview code={componentSource} />
 		{:else}
-			<div
-				class="flex h-full flex-col items-center justify-center text-center text-sm text-muted-foreground"
-			>
-				<p>Component not available</p>
-				<a
-					class="underline hover:text-foreground"
-					href="https://github.com/max-got/originui-svelte"
-				>
-					Create a pull request
-				</a>
-			</div>
+			<Component />
 		{/if}
-	{:catch error}
-		<div class="flex h-40 items-center justify-center text-destructive">
-			<p class="text-sm font-medium">Error: {error.message}</p>
+	{:else}
+		<div
+			class="flex h-full flex-col items-center justify-center text-center text-sm text-muted-foreground"
+		>
+			<p>Component not available</p>
+			<a class="underline hover:text-foreground" href="https://github.com/max-got/originui-svelte">
+				Create a pull request
+			</a>
 		</div>
-	{/await}
+	{/if}
 </div>
