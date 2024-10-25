@@ -33,10 +33,7 @@
 	</div>
 {/snippet}
 
-<div
-	class={cn('group/item relative ', className)}
-	data-preview-code={showCode ? 'true' : undefined}
->
+<div class={cn('group/item', className)} data-preview-code={showCode ? 'true' : undefined}>
 	{#await readComponent(directory, componentName)}
 		<div class="flex items-center justify-center h-40 text-muted-foreground">
 			<p class="text-sm font-medium">Loading...</p>
@@ -44,13 +41,10 @@
 	{:then { Component, source }}
 		{#if Component && source}
 			{@render actionButtons({ source })}
-
 			{#if showCode}
 				<CodePreview code={source} />
 			{:else}
-				<div class="text-left">
-					<Component />
-				</div>
+				<Component />
 			{/if}
 		{:else}
 			<div
