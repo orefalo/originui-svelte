@@ -24,7 +24,7 @@
 <ToggleGroup
 	type="single"
 	variant="outline"
-	class="flex gap-0 -space-x-px rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse"
+	class="flex w-full gap-0 -space-x-px rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse"
 	bind:value
 >
 	{#each options as option (option.value)}

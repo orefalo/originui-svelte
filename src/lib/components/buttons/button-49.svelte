@@ -57,7 +57,7 @@
 				class="absolute -right-2 -top-2 size-6 rounded-full border-2 border-background"
 				aria-label="Remove image"
 			>
-				<IconX width="16" height="16" />
+				<IconX size={16} />
 			</Button>
 		{/if}
 		<input

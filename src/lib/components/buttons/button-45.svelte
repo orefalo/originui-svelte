@@ -9,7 +9,7 @@
 	import IconGithub from '~icons/ri/github-fill';
 </script>
 
-<div class="flex flex-col gap-2">
+<div class="flex flex-col gap-2 w-full">
 	<Button class="bg-[#DB4437] text-white after:flex-1 hover:bg-[#DB4437]/90">
 		<span class="pointer-events-none me-2 flex-1">
 			<IconGoogle class="opacity-60" width="16" height="16" aria-hidden="true" />
