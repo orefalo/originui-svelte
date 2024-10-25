@@ -6,7 +6,7 @@
 
 	let {
 		ref = $bindable(null),
-		value = $bindable(),
+		value,
 		class: className,
 		size,
 		variant,
@@ -18,6 +18,7 @@
 
 <ToggleGroupPrimitive.Item
 	bind:ref
+	{value}
 	class={cn(
 		toggleVariants({
 			variant: ctx.variant || variant,
@@ -25,6 +26,5 @@
 		}),
 		className
 	)}
-	{value}
 	{...restProps}
 />
