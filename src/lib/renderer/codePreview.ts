@@ -17,6 +17,8 @@ async function createHighlighterInstance() {
 	return highlighterInstance;
 }
 
+createHighlighterInstance();
+
 async function highlighter(
 	code: string,
 	options: Omit<Partial<CodeToHastOptions>, 'themes' | 'theme' | 'lang'> = {}
