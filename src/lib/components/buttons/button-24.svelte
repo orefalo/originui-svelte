@@ -15,20 +15,17 @@
 
 <TooltipProvider>
 	<Tooltip>
-		<TooltipTrigger
-			class="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
-		>
-			{#snippet child({ props })}
-				<Toggle
-					aria-label="Bookmark this"
-					pressed={bookmarked}
-					onPressedChange={() => (bookmarked = !bookmarked)}
-				>
-					{#snippet children()}
-						<Bookmark size={16} stroke-width={2} aria-hidden="true" />
-					{/snippet}
-				</Toggle>
-			{/snippet}
+		<TooltipTrigger>
+			<Toggle
+				aria-label="Bookmark this"
+				class="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
+				pressed={bookmarked}
+				onPressedChange={() => (bookmarked = !bookmarked)}
+			>
+				{#snippet children()}
+					<Bookmark size={16} stroke-width={2} aria-hidden="true" />
+				{/snippet}
+			</Toggle>
 		</TooltipTrigger>
 		<TooltipContent class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground">
 			<p>{bookmarked ? 'Remove bookmark' : 'Bookmark this'}</p>
