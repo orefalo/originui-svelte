@@ -1,11 +1,9 @@
 <script lang="ts">
-	// 	import Cta from "@/demo/cta";
-	import DemoComponent from '$lib/demo/demo-component.svelte';
 	import PageHeader from '$lib/demo/page-header.svelte';
+	import * as DemoComponents from '$lib/demo/demo-component/index.js';
 
 	const directory = 'buttons';
-	// Define an array of file names
-	const files = [
+	const buttonFiles = [
 		'button-01',
 		'button-02',
 		'button-03',
@@ -69,15 +67,11 @@
 				> and TailwindCSS.
 			</PageHeader>
 
-			<div
-				class="grid max-w-6xl grid-cols-1 overflow-hidden sm:grid-cols-2 lg:grid-cols-3 [&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2 [&>*]:relative [&>*]:px-1 [&>*]:py-12 [&>*]:before:absolute [&>*]:before:bg-border/70 [&>*]:before:[block-size:100vh] [&>*]:before:[inline-size:1px] [&>*]:before:[inset-block-start:0] [&>*]:before:[inset-inline-start:-1px] [&>*]:after:absolute [&>*]:after:bg-border/70 [&>*]:after:[block-size:1px] [&>*]:after:[inline-size:100vw] [&>*]:after:[inset-block-start:-1px] [&>*]:after:[inset-inline-start:0] sm:[&>*]:px-8 xl:[&>*]:px-12"
-			>
-				{#each files as file}
-					<DemoComponent {directory} componentName={file} class="text-center" />
+			<DemoComponents.Wrapper class="[&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2">
+				{#each buttonFiles as file}
+					<DemoComponents.Demo {directory} componentName={file} class="text-center" />
 				{/each}
-			</div>
-
-			<!-- <Cta /> -->
+			</DemoComponents.Wrapper>
 		</div>
 	</div>
 </main>
