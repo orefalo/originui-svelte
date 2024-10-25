@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils.js';
-	import CopyButton from './copy-button.svelte';
-	import ViewToggleButton from './view-toggle-button.svelte';
+	import CopyButton from '../copy-button.svelte';
+	import ViewToggleButton from './demo-view-toggle-button.svelte';
 	import { readComponent } from './readComponentSource.js';
 	import CodePreview from '$lib/demo/code-preview.svelte';
 
@@ -48,11 +48,21 @@
 			{#if showCode}
 				<CodePreview code={source} />
 			{:else}
-				<Component />
+				<div class="text-left">
+					<Component />
+				</div>
 			{/if}
 		{:else}
-			<div class="flex items-center justify-center h-40 text-muted-foreground">
-				<p class="text-sm font-medium">Component not available</p>
+			<div
+				class="flex flex-col items-center text-muted-foreground text-sm text-center h-full justify-center"
+			>
+				<p>Component not available</p>
+				<a
+					class="underline hover:text-foreground"
+					href="https://github.com/max-got/originui-svelte"
+				>
+					Create a pull request
+				</a>
 			</div>
 		{/if}
 	{:catch error}
