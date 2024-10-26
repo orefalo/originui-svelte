@@ -13,7 +13,7 @@
 <main>
 	<div class="px-4 sm:px-6">
 		<div class="mx-auto w-full max-w-6xl">
-			<PageHeader title="Input">
+			<PageHeader title="Checkbox, Radio, and Switch">
 				A growing collection of over {totalComponents} components built with
 				<span class="text-svelte">Svelte</span> and TailwindCSS.
 			</PageHeader>
