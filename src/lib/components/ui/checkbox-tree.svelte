@@ -84,8 +84,6 @@
 			children: node.children?.map(renderTreeNode) ?? []
 		};
 	}
-
-	const treeProps = $derived(renderTreeNode(tree));
 </script>
 
-{@render renderNode(treeProps)}
+{@render renderNode(renderTreeNode(tree))}
