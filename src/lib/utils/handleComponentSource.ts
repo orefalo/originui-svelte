@@ -14,16 +14,22 @@ let imports: ComponentImports | null = null;
 function getImports(): ComponentImports {
 	if (!imports) {
 		imports = {
-			compiled: import.meta.glob('/src/lib/components/**/*.svelte', {
-				eager: true,
-				import: 'default'
-			}) as Record<string, Component>,
+			compiled: import.meta.glob(
+				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+				{
+					eager: true,
+					import: 'default'
+				}
+			) as Record<string, Component>,
 
-			source: import.meta.glob('/src/lib/components/**/*.svelte', {
-				query: '?raw',
-				eager: true,
-				import: 'default'
-			}) as Record<string, string>
+			source: import.meta.glob(
+				['/src/lib/components/**/*.svelte', '!/src/lib/components/ui/**/*.svelte'],
+				{
+					query: '?raw',
+					eager: true,
+					import: 'default'
+				}
+			) as Record<string, string>
 		};
 	}
 	return imports;
