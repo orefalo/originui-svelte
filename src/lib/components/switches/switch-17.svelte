@@ -66,7 +66,7 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<div class="grid grow gap-1">
+		<div class="grid grow gap-2">
 			<Label for="switch-17">
 				Label
 				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">

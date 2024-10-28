@@ -11,7 +11,7 @@
 		class="order-1 after:absolute after:inset-0"
 		aria-describedby="checkbox-13-description"
 	/>
-	<div class="grid grow gap-1">
+	<div class="grid grow gap-2">
 		<Label for="checkbox-13">
 			Label
 			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (Sublabel) </span>

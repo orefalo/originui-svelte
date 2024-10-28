@@ -15,8 +15,6 @@
 	}
 </script>
 
-<!-- ks -->
-
 <RadioGroup class="gap-6" bind:value={selectedValue}>
 	<div>
 		<div class="flex items-start gap-2">
@@ -27,7 +25,7 @@
 				aria-controls="radio-input-05"
 			/>
 			<div class="grow">
-				<div class="grid grow gap-1">
+				<div class="grid grow gap-2">
 					<Label for="radio-05-with-expansion">Radio with expansion</Label>
 					<p id="radio-05-with-expansion-description" class="text-xs text-muted-foreground">
 						You can use this radio with a label and a description.
@@ -65,7 +63,7 @@
 			id="radio-05-without-expansion"
 			aria-describedby="radio-05-without-expansion-description"
 		/>
-		<div class="grid grow gap-1">
+		<div class="grid grow gap-2">
 			<Label for="radio-05-without-expansion">Radio without expansion</Label>
 			<p id="radio-05-without-expansion-description" class="text-xs text-muted-foreground">
 				You can use this checkbox with a label and a description.

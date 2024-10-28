@@ -14,7 +14,7 @@
 		class="order-1 h-4 w-6 after:absolute after:inset-0 [&_span]:size-3 [&_span]:data-[state=checked]:translate-x-2 rtl:[&_span]:data-[state=checked]:-translate-x-2"
 		aria-describedby="switch-15-description"
 	/>
-	<div class="grid grow gap-1">
+	<div class="grid grow gap-2">
 		<Label for="switch-15">
 			Label
 			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (Sublabel) </span>

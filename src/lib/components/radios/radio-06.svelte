@@ -16,7 +16,7 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="5-stars" id="radio-06-5-stars" />
-		<Label for="radio-06-5-stars" class="inline-flex items-center gap-2">
+		<Label for="radio-06-5-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				{#each Array(5) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
@@ -28,7 +28,7 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="4-stars" id="radio-06-4-stars" />
-		<Label for="radio-06-4-stars" class="inline-flex items-center gap-2">
+		<Label for="radio-06-4-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				{#each Array(4) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
@@ -41,7 +41,7 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="3-stars" id="radio-06-3-stars" />
-		<Label for="radio-06-3-stars" class="inline-flex items-center gap-2">
+		<Label for="radio-06-3-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				{#each Array(3) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
@@ -56,7 +56,7 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="2-stars" id="radio-06-2-stars" />
-		<Label for="radio-06-2-stars" class="inline-flex items-center gap-2">
+		<Label for="radio-06-2-stars" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				{#each Array(2) as _}
 					<IconStarFill width="16" height="16" aria-hidden="true" />
@@ -71,7 +71,7 @@
 	</div>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="1-star" id="radio-06-1-star" />
-		<Label for="radio-06-1-star" class="inline-flex items-center gap-2">
+		<Label for="radio-06-1-star" class="inline-flex items-center gap-1">
 			<span class="inline-flex items-center text-amber-500" aria-hidden="true">
 				<IconStarFill width="16" height="16" aria-hidden="true" />
 				{#each Array(4) as _}

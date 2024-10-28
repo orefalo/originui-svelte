@@ -12,7 +12,7 @@
 	let selectedValue = $state('r2');
 </script>
 
-<fieldset class="space-y-3">
+<fieldset class="space-y-4">
 	<legend class="text-sm font-medium leading-none text-foreground">Choose plan</legend>
 	<RadioGroup
 		class="gap-0 -space-y-px rounded-lg shadow-sm shadow-black/[.04]"
@@ -34,7 +34,7 @@
 							{item.label}
 							{#if item.value === 'r2'}
 								<span
-									class="-mt-1 ml-2 inline-flex items-center rounded-full border border-emerald-500/50 bg-emerald-50 px-1 py-0.5 text-[9px] font-medium uppercase text-emerald-500"
+									class="-mt-1 ml-2 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-300/15 px-1 py-0.5 text-[10px] font-medium uppercase text-emerald-600"
 								>
 									Popular
 								</span>

@@ -8,17 +8,6 @@ interface ComponentImports {
 	source: Record<string, string>;
 }
 
-interface ComponentCache {
-	metadata: Map<string, ComponentMetadata>;
-	renders: Map<string, ComponentRender>;
-}
-
-// Initialize caches
-const cache: ComponentCache = {
-	metadata: new Map(),
-	renders: new Map()
-};
-
 // Lazy load imports
 let imports: ComponentImports | null = null;
 
@@ -38,10 +27,6 @@ function getImports(): ComponentImports {
 		};
 	}
 	return imports;
-}
-
-function getCacheKey(directory: string, componentName: string): string {
-	return `${directory}/${componentName}`;
 }
 
 function buildComponentPath(directory: string, componentName: string): string {
@@ -82,14 +67,6 @@ export async function getComponentSource(
 	directory: string,
 	componentName: string
 ): Promise<ComponentMetadata> {
-	const cacheKey = getCacheKey(directory, componentName);
-
-	// Check cache first
-	const cachedMetadata = cache.metadata.get(cacheKey);
-	if (cachedMetadata) {
-		return cachedMetadata;
-	}
-
 	const path = buildComponentPath(directory, componentName);
 	const { source } = getImports();
 	const rawSource = source[path];
@@ -102,27 +79,13 @@ export async function getComponentSource(
 				code: await processComponentSource(rawSource, path)
 			};
 
-	// Cache the result
-	cache.metadata.set(cacheKey, metadata);
 	return metadata;
 }
 
 export async function fetchComponentsFromAPI(
 	fetchFn: typeof fetch,
-	directory: string,
-	skipCache = false
+	directory: string
 ): Promise<ComponentMetadata[]> {
-	// Check if all components for this directory are cached
-	if (!skipCache) {
-		const cachedComponents = Array.from(cache.metadata.entries())
-			.filter(([key]) => key.startsWith(directory + '/'))
-			.map(([, metadata]) => metadata);
-
-		if (cachedComponents.length > 0) {
-			return cachedComponents;
-		}
-	}
-
 	const response = await fetchFn(`/api/v1/components/${directory}`);
 
 	if (!response.ok) {
@@ -130,26 +93,12 @@ export async function fetchComponentsFromAPI(
 	}
 
 	const components = (await response.json()) as ComponentMetadata[];
-
-	// Cache the results
-	components.forEach((component) => {
-		const cacheKey = getCacheKey(directory, component.id);
-		cache.metadata.set(cacheKey, component);
-	});
-
 	return components;
 }
 
 export async function createComponentRender(metadata: ComponentMetadata): Promise<ComponentRender> {
-	// Check render cache
-	const cachedRender = cache.renders.get(metadata.path);
-	if (cachedRender) {
-		return cachedRender;
-	}
-
 	const component = await getCompiledComponent(metadata.path);
 	if (!component) {
-		console.warn(`Component not found: ${metadata.path}`);
 		throw new Error(`Component not found: ${metadata.path}`);
 	}
 
@@ -158,13 +107,5 @@ export async function createComponentRender(metadata: ComponentMetadata): Promis
 		...metadata
 	};
 
-	// Cache the render
-	cache.renders.set(metadata.path, render);
 	return render;
-}
-
-// Utility function to clear caches if needed
-export function clearCache(type?: 'metadata' | 'renders') {
-	if (!type || type === 'metadata') cache.metadata.clear();
-	if (!type || type === 'renders') cache.renders.clear();
 }

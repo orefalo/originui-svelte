@@ -4,7 +4,7 @@
 	let selectedValue = $state('0');
 </script>
 
-<fieldset class="space-y-3">
+<fieldset class="space-y-4">
 	<legend class="text-sm font-medium leading-none text-foreground">
 		How likely are you to recommend us?
 	</legend>

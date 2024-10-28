@@ -12,7 +12,7 @@
 	let selectedValue = $state('r3');
 </script>
 
-<fieldset class="space-y-3">
+<fieldset class="space-y-4">
 	<legend class="text-sm font-medium leading-none text-foreground">How did it go?</legend>
 	<RadioGroup class="flex gap-1.5" bind:value={selectedValue}>
 		{#each items as item (item.id)}

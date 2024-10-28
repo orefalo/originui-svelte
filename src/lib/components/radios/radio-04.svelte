@@ -10,7 +10,7 @@
 			id="radio-04-small"
 			aria-describedby="radio-04-small-description"
 		/>
-		<div class="grid grow gap-1">
+		<div class="grid grow gap-2">
 			<Label for="radio-04-small">
 				Small{' '}
 				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">
@@ -24,7 +24,7 @@
 	</div>
 	<div class="flex items-start gap-2">
 		<RadioGroupItem value="r2" id="radio-04-r2" aria-describedby="radio-04-r2-description" />
-		<div class="grid grow gap-1">
+		<div class="grid grow gap-2">
 			<Label for="radio-04-r2">
 				Large{' '}
 				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">

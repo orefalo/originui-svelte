@@ -13,13 +13,11 @@
 		{ id: 'radio-18-r2', value: 'r2', label: 'Dark', image: UiDark },
 		{ id: 'radio-18-r3', value: 'r3', label: 'System', image: UiSystem }
 	] as const;
-
-	let selectedValue = $state('r1');
 </script>
 
-<fieldset class="space-y-3">
+<fieldset class="space-y-4">
 	<legend class="text-sm font-medium leading-none text-foreground">Choose a theme</legend>
-	<RadioGroup class="flex gap-3" bind:value={selectedValue}>
+	<RadioGroup class="flex gap-3" value="r1">
 		{#each items as item (item.id)}
 			<label>
 				<RadioGroupItem

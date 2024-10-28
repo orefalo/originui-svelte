@@ -5,7 +5,7 @@
 
 <div class="flex items-start gap-2">
 	<Checkbox id="checkbox-12" class="order-1" aria-describedby="checkbox-12-description" />
-	<div class="grid grow gap-1">
+	<div class="grid grow gap-2">
 		<Label for="checkbox-12">
 			Label
 			<span class="text-xs font-normal leading-[inherit] text-muted-foreground"> (Sublabel) </span>

@@ -1,11 +1,9 @@
 <script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
-
-	let selectedValue = $state('r1');
 </script>
 
-<RadioGroup class="gap-2" bind:value={selectedValue}>
+<RadioGroup class="gap-2" value="r1">
 	<!-- Radio card #1 -->
 	<div
 		class="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
@@ -36,7 +34,7 @@
 					fill="#F79E1B"
 				/>
 			</svg>
-			<div class="grid grow gap-1">
+			<div class="grid grow gap-2">
 				<Label for="radio-09-r1">
 					Label
 					<span class="text-xs font-normal leading-[inherit] text-muted-foreground">
@@ -91,7 +89,7 @@
 					</clipPath>
 				</defs>
 			</svg>
-			<div class="grid grow gap-1">
+			<div class="grid grow gap-2">
 				<Label for="radio-09-r2">
 					Label
 					<span class="text-xs font-normal leading-[inherit] text-muted-foreground">

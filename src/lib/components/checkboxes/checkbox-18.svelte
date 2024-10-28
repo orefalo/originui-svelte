@@ -12,7 +12,7 @@
 	];
 </script>
 
-<fieldset class="space-y-3">
+<fieldset class="space-y-4">
 	<legend class="text-sm font-medium leading-none text-foreground">Days of the week</legend>
 	<div class="flex gap-1.5">
 		{#each items as item (item.id)}

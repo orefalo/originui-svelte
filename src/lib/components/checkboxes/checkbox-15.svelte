@@ -63,7 +63,7 @@
 				</clipPath>
 			</defs>
 		</svg>
-		<div class="grid gap-1">
+		<div class="grid gap-2">
 			<Label for="checkbox-15">
 				Label
 				<span class="text-xs font-normal leading-[inherit] text-muted-foreground">

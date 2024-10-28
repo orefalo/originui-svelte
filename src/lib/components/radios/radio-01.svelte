@@ -3,17 +3,17 @@
 	import { RadioGroup, RadioGroupItem } from '$lib/components/ui/radio-group/index.js';
 </script>
 
-<RadioGroup value="small">
+<RadioGroup value="r1">
 	<div class="flex items-center gap-2">
-		<RadioGroupItem value="small" id="radio-01-small" />
-		<Label for="radio-01-small">Small</Label>
+		<RadioGroupItem value="r1" id="radio-01-r1" />
+		<Label for="radio-01-r1">Small</Label>
 	</div>
 	<div class="flex items-center gap-2">
-		<RadioGroupItem value="medium" id="radio-01-medium" />
-		<Label for="radio-01-medium">Medium</Label>
+		<RadioGroupItem value="r2" id="radio-01-r2" />
+		<Label for="radio-01-r2">Medium</Label>
 	</div>
 	<div class="flex items-center gap-2">
-		<RadioGroupItem value="large" id="radio-01-large" />
-		<Label for="radio-01-large">Large</Label>
+		<RadioGroupItem value="r3" id="radio-01-r3" />
+		<Label for="radio-01-r3">Large</Label>
 	</div>
 </RadioGroup>
