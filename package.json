@@ -14,7 +14,6 @@
 	"type": "module",
 	"devDependencies": {
 		"@iconify-json/ri": "^1.2.2",
-		"@sveltejs/adapter-auto": "^3.3.0",
 		"@sveltejs/adapter-cloudflare": "^4.7.3",
 		"@sveltejs/enhanced-img": "^0.3.9",
 		"@sveltejs/kit": "^2.7.2",
