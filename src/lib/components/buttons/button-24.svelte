@@ -15,15 +15,14 @@
 	<Tooltip>
 		<TooltipTrigger aria-label="Bookmark this">
 			{#snippet child({ props })}
-				<div {...props} class="w-fit">
-					<Toggle
-						class="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
-						pressed={bookmarked}
-						onPressedChange={() => (bookmarked = !bookmarked)}
-					>
-						<Bookmark size={16} stroke-width={2} aria-hidden="true" {...props} />
-					</Toggle>
-				</div>
+				<Toggle
+					class="group size-9 p-0 hover:bg-indigo-50 hover:text-indigo-500 data-[state=on]:bg-indigo-50 data-[state=on]:text-indigo-500"
+					pressed={bookmarked}
+					onPressedChange={() => (bookmarked = !bookmarked)}
+					{...props}
+				>
+					<Bookmark size={16} stroke-width={2} aria-hidden="true" {...props} />
+				</Toggle>
 			{/snippet}
 		</TooltipTrigger>
 		<TooltipContent class="border border-input bg-popover px-2 py-1 text-xs text-muted-foreground">
