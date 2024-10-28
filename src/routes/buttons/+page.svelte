@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types.js';
-
 	import PageHeader from '$lib/demo/page-header.svelte';
 	import * as DemoComponents from '$lib/demo/demo-component/index.js';
 
-	let { data }: { data: PageData } = $props();
+	let { data } = $props();
 </script>
 
 <main>
@@ -16,13 +14,11 @@
 				> and TailwindCSS.
 			</PageHeader>
 
-			<DemoComponents.Wrapper class="[&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2">
-				{#each data.components as component}
-					<DemoComponents.Demo
-						Component={component.Component}
-						componentSource={component.source}
-						class="flex justify-center"
-					/>
+			<DemoComponents.Wrapper
+				class="[&>*]:flex [&>*]:justify-center [&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2"
+			>
+				{#each data.components as component (component.id)}
+					<DemoComponents.Demo {component} />
 				{/each}
 			</DemoComponents.Wrapper>
 		</div>

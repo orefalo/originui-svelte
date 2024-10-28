@@ -1,18 +1,16 @@
 <script lang="ts">
 	import { cn } from '$lib/utils.js';
-	import CopyButton from '../copy-button.svelte';
+	import type { ComponentRender } from '$lib/types/components.js';
+	import CopyButton from '$lib/demo/copy-button.svelte';
 	import ViewToggleButton from './demo-view-toggle-button.svelte';
 
 	import CodePreview from '$lib/demo/code-preview.svelte';
-	import type { Component as ComponentType } from 'svelte';
 
 	let {
-		Component,
-		componentSource,
+		component,
 		class: className
 	}: {
-		Component: ComponentType | null;
-		componentSource: string | null;
+		component: ComponentRender;
 		class?: string;
 	} = $props();
 
@@ -34,17 +32,17 @@
 	>
 		<ViewToggleButton {showCode} onToggle={toggleView} />
 		<div class="h-6 w-px bg-border"></div>
-		<CopyButton componentSource={source} />
+		<CopyButton code={source} />
 	</div>
 {/snippet}
 
 <div class={cn('group/item', className)} data-preview-code={showCode ? 'true' : undefined}>
-	{#if Component && componentSource}
-		{@render actionButtons({ source: componentSource })}
+	{#if component && component.code.copyable.content && component.code.preview.content}
+		{@render actionButtons({ source: component.code.copyable.content })}
 		{#if showCode}
-			<CodePreview code={componentSource} />
+			<CodePreview code={component.code.highlighted.content} />
 		{:else}
-			<Component />
+			<component.render />
 		{/if}
 	{:else}
 		<div
