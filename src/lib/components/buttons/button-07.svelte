@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-
 	import Button from '$lib/components/ui/button.svelte';
 	import Sparkles from 'lucide-svelte/icons/sparkles';
 </script>

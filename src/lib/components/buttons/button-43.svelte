@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install -D unplugin-icons @iconify-json/ri
-
 	import Button from '$lib/components/ui/button.svelte';
 
 	import IconGoogle from '~icons/ri/google-fill';

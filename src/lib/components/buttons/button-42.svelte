@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install -D unplugin-icons @iconify-json/mdi
-
 	import Button from '$lib/components/ui/button.svelte';
 
 	import IconFacebook from '~icons/ri/facebook-fill';

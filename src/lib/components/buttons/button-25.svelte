@@ -1,12 +1,12 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-
 	import Button from '$lib/components/ui/button.svelte';
 	import ChevronUp from 'lucide-svelte/icons/chevron-up';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 </script>
 
-<div class="inline-flex -space-x-px rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse">
+<div
+	class="inline-grid grid-flow-col -space-x-px rounded-lg shadow-sm shadow-black/[0.04] rtl:space-x-reverse"
+>
 	<Button
 		class="rounded-none shadow-none first:rounded-s-lg last:rounded-e-lg focus-visible:z-10"
 		variant="outline"

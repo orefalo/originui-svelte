@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-
 	import Button from '$lib/components/ui/button.svelte';
 	import SquareArrowOutUpRight from 'lucide-svelte/icons/square-arrow-out-up-right';
 </script>
