@@ -10,6 +10,8 @@
 	import Illustration from '$lib/demo/illustration.svelte';
 
 	let { children } = $props();
+
+	const isHome = $derived($page.url.pathname === '/');
 </script>
 
 <svelte:head>
@@ -21,15 +23,18 @@
 		crossorigin="anonymous"
 	/>
 </svelte:head>
+
 <ModeWatcher defaultMode="system" />
 
 <div
 	class="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip"
 >
 	<Header />
-	<Illustration />
+	{#if isHome}
+		<Illustration />
+	{/if}
 	{@render children()}
-	{#if $page.url.pathname !== '/'}
+	{#if !isHome}
 		<Cta />
 	{/if}
 </div>
