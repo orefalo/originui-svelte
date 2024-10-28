@@ -1,57 +1,58 @@
-<script lang="ts">
-	// Dependencies: pnpm install bits-ui @internationalized/date
-
+<script module lang="ts">
+	// [!code collapse-start]
 	/**
-	 * //$lib/runes/use-locale.svelte.js
-	 * import { getContext, setContext } from 'svelte';
-
-const LOCALE_CONTEXT_KEY = Symbol('locale');
-
-interface LocaleOptions {
-	locale?: string;
-}
-
-function getDefaultLocale(): string {
-	if (typeof navigator !== 'undefined' && 'language' in navigator) {
-		return navigator.language;
-	}
-	return 'en-US';
-}
-
-export class LocaleManager {
-	#locale = $state('');
-
-	constructor(options: LocaleOptions = {}) {
-		this.#locale = options.locale ?? getDefaultLocale();
+	 * IMPORTANT: This component was built for demo purposes only and has not been tested in production.
+	 * It serves as a proof of concept for a date picker.
+	 * If you're interested in collaborating to create a more robust, production-ready
+	 * headless component, your contributions are welcome!
+	 */
+	import { getContext, setContext } from 'svelte';
+	const LOCALE_CONTEXT_KEY = Symbol('ctx:locale');
+	interface LocaleOptions {
+		locale?: string;
 	}
 
-	get locale(): string {
-		return this.#locale;
+	function getDefaultLocale(): string {
+		if (typeof navigator !== 'undefined' && navigator.language) {
+			return navigator.language;
+		}
+		return 'en-US';
 	}
 
-	set locale(value: string) {
-		this.#locale = value;
+	export class LocaleManager {
+		#locale = $state<string>('');
+
+		constructor(options: LocaleOptions = {}) {
+			this.#locale = options.locale ?? getDefaultLocale();
+		}
+
+		get locale(): string {
+			return this.#locale;
+		}
+
+		set locale(value: string) {
+			this.#locale = value;
+		}
 	}
-}
 
-export function useLocale(options: LocaleOptions = {}): LocaleManager {
-	const contextLocale = getContext<LocaleManager | undefined>(LOCALE_CONTEXT_KEY);
+	export function useLocale(options: LocaleOptions = {}): LocaleManager {
+		const contextLocale = getContext<LocaleManager | undefined>(LOCALE_CONTEXT_KEY);
 
-	if (contextLocale) {
-		return contextLocale;
+		if (contextLocale) {
+			return contextLocale;
+		}
+
+		const localeManager = new LocaleManager(options);
+		setContext(LOCALE_CONTEXT_KEY, localeManager);
+
+		return localeManager;
 	}
+	// [!code collapse-end]
+</script>
 
-	const localeManager = new LocaleManager(options);
-	setContext(LOCALE_CONTEXT_KEY, localeManager);
-
-	return localeManager;
-}
-
-	*/
-
+<script lang="ts">
 	import { DateField } from 'bits-ui';
 	import Label from '$lib/components/ui/label.svelte';
-	import { useLocale } from '$lib/runes/use-locale.svelte.js';
 
 	const localeCtx = useLocale();
 </script>

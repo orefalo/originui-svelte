@@ -3,7 +3,7 @@
 	import Label from '$lib/components/ui/label.svelte';
 </script>
 
-<div class="items-top flex gap-2">
+<div class="flex items-start gap-2">
 	<Checkbox id="checkbox-12" class="order-1" aria-describedby="checkbox-12-description" />
 	<div class="grid grow gap-1">
 		<Label for="checkbox-12">

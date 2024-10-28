@@ -1,27 +1,35 @@
-<script lang="ts">
+<script module lang="ts">
+	// [!code collapse-start]
 	/**
-     * export class CharacterLimit {
-	maxLength: number;
+	 * IMPORTANT: This component was built for demo purposes only and has not been tested in production.
+	 * It serves as a proof of concept for a character limit input.
+	 * If you're interested in collaborating to create a more robust, production-ready
+	 * headless component, your contributions are welcome!
+	 */
+	export class CharacterLimit {
+		maxLength: number;
 
-	#value = $state('');
-	characterCount = $derived(this.#value.length);
+		#value = $state('');
+		characterCount = $derived(this.#value.length);
 
-	constructor(maxLength: number) {
-		this.maxLength = maxLength;
+		constructor(maxLength: number) {
+			this.maxLength = maxLength;
+		}
+
+		set value(value: string) {
+			this.#value = value.slice(0, this.maxLength);
+		}
+
+		get value() {
+			return this.#value;
+		}
 	}
+	// [!code collapse-end]
+</script>
 
-	set value(value: string) {
-		this.#value = value.slice(0, this.maxLength);
-	}
-
-	get value() {
-		return this.#value;
-	}
-    }
-    */
+<script lang="ts">
 	import Label from '$lib/components/ui/label.svelte';
 	import Input from '$lib/components/ui/input.svelte';
-	import { CharacterLimit } from '$lib/runes/character-limit.svelte';
 
 	const maxLength = 50;
 	const characterLimit = new CharacterLimit(maxLength);

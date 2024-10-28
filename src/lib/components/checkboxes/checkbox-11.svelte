@@ -14,7 +14,7 @@
 </script>
 
 <div>
-	<div class="items-top flex gap-2">
+	<div class="flex items-start gap-2">
 		<Checkbox id="checkbox-11" bind:checked aria-controls="checkbox-input-11" class="h-4 w-4" />
 		<div class="grow">
 			<div class="grid gap-1">

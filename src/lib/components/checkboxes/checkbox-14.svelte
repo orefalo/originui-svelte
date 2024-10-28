@@ -4,7 +4,7 @@
 </script>
 
 <div
-	class="items-top relative flex gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
+	class="relative flex w-full items-start gap-2 rounded-lg border border-input p-4 shadow-sm shadow-black/[.04] has-[[data-state=checked]]:border-ring"
 >
 	<Checkbox
 		id="checkbox-14"

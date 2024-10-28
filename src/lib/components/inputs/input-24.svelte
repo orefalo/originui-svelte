@@ -1,5 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
 	import Label from '$lib/components/ui/label.svelte';
 	import Input from '$lib/components/ui/input.svelte';
 	import CircleX from 'lucide-svelte/icons/circle-x';

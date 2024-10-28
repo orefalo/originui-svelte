@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CheckboxTree, { type TreeNode } from '$lib/components/ui/checkbox-tree.svelte';
 	import Checkbox from '$lib/components/ui/checkbox.svelte';
-	import Label from '../ui/label.svelte';
+	import Label from '$lib/components/ui/label.svelte';
 
 	const initialTree: TreeNode = {
 		id: 'natural-wonders',
