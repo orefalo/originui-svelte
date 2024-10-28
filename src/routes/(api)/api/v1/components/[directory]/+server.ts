@@ -198,9 +198,8 @@ export const GET: RequestHandler = async ({ params }) => {
 		);
 
 		if (!foundDirectory) {
-			return new Response(null, {
-				status: 404,
-				statusText: 'Component not available (yet?). Create a new issue if you need this.'
+			return new Response('Component not available (yet?). Create a new issue if you need this.', {
+				status: 404
 			});
 		}
 
@@ -216,16 +215,17 @@ export const GET: RequestHandler = async ({ params }) => {
 		return new Response(JSON.stringify(components), { headers: responseHeaders });
 	} catch (error) {
 		console.error('Error fetching components:', error);
-		return new Response(null, {
-			status: 500,
-			statusText: 'Internal server error while fetching components'
+		return new Response('Internal server error while fetching components', {
+			status: 500
 		});
 	}
 };
 
 export const fallback: RequestHandler = async () => {
-	return new Response(null, {
-		status: 404,
-		statusText: `Components not available (yet?). Create a new issue if you need this. Not even sure why you're here.`
-	});
+	return new Response(
+		"Components not available (yet?). Create a new issue if you need this. Not even sure why you're here.",
+		{
+			status: 404
+		}
+	);
 };
