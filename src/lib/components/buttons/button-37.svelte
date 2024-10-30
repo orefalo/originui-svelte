@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-
 	import Button from '$lib/components/ui/button.svelte';
 	import ChevronDown from 'lucide-svelte/icons/chevron-down';
 	import GitFork from 'lucide-svelte/icons/git-fork';

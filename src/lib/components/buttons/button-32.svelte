@@ -1,7 +1,6 @@
 <script lang="ts">
-	// Dependencies: pnpm install bits-ui
-
 	import { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';
+
 	const options = [
 		{
 			value: 'left',
@@ -16,6 +15,7 @@
 			label: 'Right'
 		}
 	] as const;
+
 	let value = $state('');
 </script>
 

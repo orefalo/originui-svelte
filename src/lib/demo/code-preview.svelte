@@ -1,24 +1,36 @@
 <script lang="ts">
-	import highlighter from '$lib/renderer/codePreview.js';
-
 	let { code }: { code: string } = $props();
-
-	const highlightedCode = highlighter(code, {
-		meta: {
-			class: 'shiki text-sm text-left px-2 py-4 overflow-auto h-full'
-		}
-	});
 </script>
 
-{#await highlightedCode then value}
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html value}
-{/await}
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+{@html code}
 
-<style>
+<style lang="postcss">
+	:global(pre.shiki) {
+		@apply h-full overflow-auto rounded-md px-2 py-4 text-left text-sm;
+	}
+
 	:global(html.dark .shiki),
 	:global(html.dark .shiki span) {
 		color: var(--shiki-dark) !important;
 		background-color: transparent !important;
+	}
+
+	:global(.shiki .shiki-collapsible-content) {
+		display: inline;
+		&.hidden {
+			display: none;
+		}
+
+		& .line {
+			display: block;
+		}
+	}
+
+	:global(.shiki .shiki-collapsible-toggle) {
+		cursor: pointer;
+		color: var(--shiki-dark);
+		text-decoration: underline;
+		position: relative;
 	}
 </style>

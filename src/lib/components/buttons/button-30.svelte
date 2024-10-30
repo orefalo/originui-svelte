@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte bits-ui
-
 	import { ToggleGroup, ToggleGroupItem } from '$lib/components/ui/toggle-group/index.js';
 	import AlignCenter from 'lucide-svelte/icons/align-center';
 	import AlignJustify from 'lucide-svelte/icons/align-justify';

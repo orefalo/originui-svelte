@@ -40,6 +40,7 @@
 				class="absolute inset-0 object-cover object-center transition-transform duration-300 group-hover:scale-110"
 				src="/static/avatar.jpg"
 				alt="Max's profile image"
+				loading="lazy"
 			/>
 		</a>
 	</span>

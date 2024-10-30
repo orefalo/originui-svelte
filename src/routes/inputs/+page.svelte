@@ -15,8 +15,8 @@
 			</PageHeader>
 
 			<DemoComponents.Wrapper class="[&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2">
-				{#each data.components as component}
-					<DemoComponents.Demo Component={component.Component} componentSource={component.source} />
+				{#each data.components as component (component.id)}
+					<DemoComponents.Demo {component} />
 				{/each}
 			</DemoComponents.Wrapper>
 		</div>

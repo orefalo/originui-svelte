@@ -1,8 +1,11 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-
 	import Button from '$lib/components/ui/button.svelte';
-	import { Minus, Plus, Volume, Volume1, Volume2, VolumeX } from 'lucide-svelte';
+	import Minus from 'lucide-svelte/icons/minus';
+	import Plus from 'lucide-svelte/icons/plus';
+	import Volume from 'lucide-svelte/icons/volume';
+	import Volume1 from 'lucide-svelte/icons/volume-1';
+	import Volume2 from 'lucide-svelte/icons/volume-2';
+	import VolumeX from 'lucide-svelte/icons/volume-x';
 
 	let volume = $state(3);
 

@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install -D unplugin-icons @iconify-json/lucide
-
 	import Button from '$lib/components/ui/button.svelte';
 	import IconCircleUserRound from 'lucide-svelte/icons/circle-user-round';
 	import IconX from 'lucide-svelte/icons/x';

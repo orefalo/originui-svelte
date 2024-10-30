@@ -1,7 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install --save-dev @sveltejs/enhanced-img
-	// see @https://svelte.dev/docs/kit/images#sveltejs-enhanced-img
-
 	import Button from '$lib/components/ui/button.svelte';
 </script>
 
@@ -12,6 +9,7 @@
 			src="/static/avatar.jpg"
 			alt="Profile image"
 			aria-hidden="true"
+			loading="lazy"
 		/>
 	</div>
 	@max_gotts

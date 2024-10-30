@@ -1,6 +1,6 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte
-	import { Minus, Plus } from 'lucide-svelte';
+	import Minus from 'lucide-svelte/icons/minus';
+	import Plus from 'lucide-svelte/icons/plus';
 	import Label from '$lib/components/ui/label.svelte';
 
 	let value = $state(2048);

@@ -8,12 +8,12 @@
 	} from '$lib/components/ui/tooltip/index.js';
 	import { cn } from '$lib/utils.js';
 
-	let { componentSource, class: className }: { componentSource: string; class?: string } = $props();
+	let { code, class: className }: { code: string; class?: string } = $props();
 	let copied = $state(false);
 
 	const handleCopy = async () => {
 		try {
-			await navigator.clipboard.writeText(componentSource);
+			await navigator.clipboard.writeText(code);
 			copied = true;
 			setTimeout(() => (copied = false), 1500);
 		} catch (err) {

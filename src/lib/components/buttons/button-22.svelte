@@ -1,6 +1,4 @@
 <script lang="ts">
-	// Dependencies: pnpm install lucide-svelte bits-ui
-
 	import Button from '$lib/components/ui/button.svelte';
 	import {
 		Tooltip,
