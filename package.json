@@ -46,6 +46,7 @@
 		"hastscript": "^9.0.0",
 		"lucide-svelte": "^0.453.0",
 		"mode-watcher": "^0.4.1",
+		"svelte-tel-input": "^3.5.1",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",
 		"wrangler": "^3.83.0"
