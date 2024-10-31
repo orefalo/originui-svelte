@@ -34,7 +34,4 @@
 		<Illustration />
 	{/if}
 	{@render children()}
-	{#if !isHome}
-		<Cta />
-	{/if}
 </div>
