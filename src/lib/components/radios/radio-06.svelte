@@ -6,7 +6,7 @@
 	let selectedValue = $state('all');
 </script>
 
-<RadioGroup bind:value={selectedValue} class="space-y-2">
+<RadioGroup bind:value={selectedValue}>
 	<div class="flex items-center gap-2">
 		<RadioGroupItem value="all" id="radio-06-all" />
 		<Label for="radio-06-all">
