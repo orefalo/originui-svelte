@@ -30,7 +30,10 @@
 							class="after:absolute after:inset-0"
 							aria-describedby={`${item.id}-price`}
 						/>
-						<Label class="inline-flex items-start" for={item.id}>
+						<Label
+							class="inline-flex items-start leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 "
+							for={item.id}
+						>
 							{item.label}
 							{#if item.value === 'r2'}
 								<span
