@@ -124,10 +124,6 @@ Import the CSS in your `src/lib/app.css` file (the following is based on tailwin
 }
 ```
 
-#### Runes (optional)
-
-If you want to use the helpers used in some components you need to copy the `src/lib/runes` folder to your project and adjust the imports accordingly.
-
 ## Components
 
 - Inputs
