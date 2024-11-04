@@ -8,6 +8,6 @@
 	style:--primary="238.7 83.5% 66.7%"
 	style:--ring="238.7 83.5% 66.7%"
 >
-	<Switch id="switch-03" />
+	<Switch id="switch-03" checked />
 	<Label for="switch-03" class="sr-only">Colored switch</Label>
 </div>

@@ -26,7 +26,7 @@
 					<DemoComponents.Demo {component} />
 				{/each}
 				{#each data.switchComponents as component (component.id)}
-					<DemoComponents.Demo {component} />
+					<DemoComponents.Demo class="flex justify-center" {component} />
 				{/each}
 			</DemoComponents.Wrapper>
 		</div>

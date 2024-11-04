@@ -34,15 +34,13 @@
 					class="group mt-2 flex items-center gap-1 peer-data-[state=unchecked]:text-muted-foreground/70"
 				>
 					<IconCheck
-						width="16"
-						height="16"
+						size={16}
 						stroke-width="2"
 						class="peer-data-[state=unchecked]:group-[]:hidden"
 						aria-hidden="true"
 					/>
 					<IconMinus
-						width="16"
-						height="16"
+						size={16}
 						stroke-width="2"
 						class="peer-data-[state=checked]:group-[]:hidden"
 						aria-hidden="true"
