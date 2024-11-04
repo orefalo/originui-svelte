@@ -5,13 +5,8 @@
 
 	import Header from '$lib/demo/header.svelte';
 	import { ModeWatcher } from 'mode-watcher';
-	import Cta from '$lib/demo/cta.svelte';
-	import { page } from '$app/stores';
-	import Illustration from '$lib/demo/illustration.svelte';
 
 	let { children } = $props();
-
-	const isHome = $derived($page.url.pathname === '/');
 </script>
 
 <svelte:head>
@@ -30,11 +25,5 @@
 	class="relative flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip"
 >
 	<Header />
-	{#if isHome}
-		<Illustration />
-	{/if}
 	{@render children()}
-	{#if !isHome}
-		<Cta />
-	{/if}
 </div>
