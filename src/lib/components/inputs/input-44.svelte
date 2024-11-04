@@ -1,10 +1,9 @@
 <script lang="ts">
-	// Dependencies: pnpm install bits-ui
 	import { PinInput, type PinInputCell } from 'bits-ui';
 	import Label from '$lib/components/ui/label.svelte';
 	import { cn } from '$lib/utils.js';
 
-	let value = '';
+	let value = $state('');
 </script>
 
 {#snippet Cell(cell: PinInputCell)}
