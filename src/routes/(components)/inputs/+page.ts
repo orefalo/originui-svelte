@@ -4,11 +4,14 @@ import type { PageLoad } from './$types.js';
 import { createComponentRender } from '$lib/utils/handleComponentSource.js';
 
 export const load = (async ({ data }) => {
-	const { componentMetadata } = data;
+	const { componentMetadataInput, componentMetadataTextarea } = data;
 
-	const components = await Promise.all(
-		componentMetadata.map((component) => createComponentRender(component))
+	const inputComponents = await Promise.all(
+		componentMetadataInput.map((component) => createComponentRender(component))
+	);
+	const textareaComponents = await Promise.all(
+		componentMetadataTextarea.map((component) => createComponentRender(component))
 	);
 
-	return { components };
+	return { inputComponents, textareaComponents };
 }) satisfies PageLoad;

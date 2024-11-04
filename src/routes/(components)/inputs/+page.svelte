@@ -15,7 +15,10 @@
 			</PageHeader>
 
 			<DemoComponents.Wrapper class="[&>[data-preview-code]]:px-1.5 [&>[data-preview-code]]:py-2">
-				{#each data.components as component (component.id)}
+				{#each data.inputComponents as component (component.id)}
+					<DemoComponents.Demo {component} />
+				{/each}
+				{#each data.textareaComponents as component (component.id)}
 					<DemoComponents.Demo {component} />
 				{/each}
 			</DemoComponents.Wrapper>

@@ -26,6 +26,9 @@ importers:
       hastscript:
         specifier: ^9.0.0
         version: 9.0.0
+      inputmask:
+        specifier: ^5.0.7
+        version: 5.0.9
       lucide-svelte:
         specifier: ^0.453.0
         version: 0.453.0(svelte@5.1.2)
@@ -63,6 +66,9 @@ importers:
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
+      '@types/inputmask':
+        specifier: ^5.0.7
+        version: 5.0.7
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
@@ -841,6 +847,9 @@ packages:
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
+  '@types/inputmask@5.0.7':
+    resolution: {integrity: sha512-uojbVPWzBQ/n/0jc/d16fLqmGasFIptbrLD2WrCPWArlk+5PgblOqH4EDkI3AoobXLAlOK5yF01V8jMmvMG5qg==}
+
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
@@ -1399,6 +1408,9 @@ packages:
 
   inline-style-parser@0.2.4:
     resolution: {integrity: sha512-0aO8FkhNZlj/ZIbNi7Lxxr12obT7cL1moPfE4tg1LkX7LlLfC6DeX4l2ZEud1ukP9jNQyNnfzQVqwbwmAATY4Q==}
+
+  inputmask@5.0.9:
+    resolution: {integrity: sha512-s0lUfqcEbel+EQXtehXqwCJGShutgieOaIImFKC/r4reYNvX3foyrChl6LOEvaEgxEbesePIrw1Zi2jhZaDZbQ==}
 
   is-arrayish@0.3.2:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
@@ -2866,6 +2878,8 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
+  '@types/inputmask@5.0.7': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/mdast@4.0.4':
@@ -3489,6 +3503,8 @@ snapshots:
   imurmurhash@0.1.4: {}
 
   inline-style-parser@0.2.4: {}
+
+  inputmask@5.0.9: {}
 
   is-arrayish@0.3.2: {}
 

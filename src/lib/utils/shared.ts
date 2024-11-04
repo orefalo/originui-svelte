@@ -31,6 +31,11 @@ const POSSIBLE_DEPENDENCIES = [
 		name: '@internationalized/date',
 		packageName: '@internationalized/date',
 		dev: false
+	},
+	{
+		name: 'inputmask',
+		packageName: 'inputmask',
+		dev: false
 	}
 ] as const;
 
