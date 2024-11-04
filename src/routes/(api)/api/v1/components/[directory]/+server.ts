@@ -111,7 +111,12 @@ const AVAILABLE_COMPONENTS = [
 			'input-47',
 			'input-48',
 			'input-49',
-			'input-50'
+			'input-50',
+			'input-51',
+			'input-52',
+			'input-53',
+			'input-54',
+			'input-55'
 		]
 	},
 	{
