@@ -36,7 +36,7 @@
 </script>
 
 <div class="space-y-2">
-	<Label htmlFor="textarea-16">Textarea with characters left</Label>
+	<Label for="textarea-16">Textarea with characters left</Label>
 	<Textarea
 		id="textarea-16"
 		bind:value={characterLimit.value}
