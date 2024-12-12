@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 7:10:00 PM
+ * Last generated at: 12/12/2024, 8:38:59 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -145,6 +145,32 @@ export const OUI_DIRECTORIES = {
 			'checkbox-16.svelte',
 			'checkbox-17.svelte',
 			'checkbox-18.svelte'
+		]
+	},
+	DIALOGS: {
+		directory: 'dialogs',
+		components: [
+			'dialog-01.svelte',
+			'dialog-02.svelte',
+			'dialog-03.svelte',
+			'dialog-04.svelte',
+			'dialog-05.svelte',
+			'dialog-06.svelte',
+			'dialog-07.svelte',
+			'dialog-08.svelte',
+			'dialog-09.svelte',
+			'dialog-10.svelte',
+			'dialog-11.svelte',
+			'dialog-12.todo.svelte',
+			'dialog-13.svelte',
+			'dialog-14.svelte',
+			'dialog-15.svelte',
+			'dialog-16.todo.svelte',
+			'dialog-17.todo.svelte',
+			'dialog-18.svelte',
+			'dialog-19.svelte',
+			'dialog-20.svelte',
+			'dialog-21.svelte'
 		]
 	},
 	INPUTS: {
@@ -347,6 +373,7 @@ export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components
 export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
+export type OUIDialogsComponents = (typeof OUI_DIRECTORIES)['DIALOGS']['components'][number];
 export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUINotificationsComponents =
 	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
@@ -361,6 +388,7 @@ export type OUIComponent = Prettify<
 	| OUIBannersComponents
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
+	| OUIDialogsComponents
 	| OUIInputsComponents
 	| OUINotificationsComponents
 	| OUIRadiosComponents
@@ -375,6 +403,7 @@ export interface OUIDirectoryToComponent {
 	banners: OUIBannersComponents;
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
+	dialogs: OUIDialogsComponents;
 	inputs: OUIInputsComponents;
 	notifications: OUINotificationsComponents;
 	radios: OUIRadiosComponents;
