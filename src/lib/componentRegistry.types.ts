@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 8:38:59 PM
+ * Last generated at: 12/12/2024, 9:49:13 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -172,6 +172,10 @@ export const OUI_DIRECTORIES = {
 			'dialog-20.svelte',
 			'dialog-21.svelte'
 		]
+	},
+	'HOVER-CARDS': {
+		directory: 'hover-cards',
+		components: ['hover-card-01.svelte', 'hover-card-02.svelte', 'hover-card-03.svelte']
 	},
 	INPUTS: {
 		directory: 'inputs',
@@ -364,6 +368,20 @@ export const OUI_DIRECTORIES = {
 			'textarea-18.svelte',
 			'textarea-19.svelte'
 		]
+	},
+	TOOLTIPS: {
+		directory: 'tooltips',
+		components: [
+			'tooltip-01.svelte',
+			'tooltip-02.svelte',
+			'tooltip-03.svelte',
+			'tooltip-04.svelte',
+			'tooltip-05.svelte',
+			'tooltip-06.svelte',
+			'tooltip-07.svelte',
+			'tooltip-08.svelte',
+			'tooltip-09.svelte'
+		]
 	}
 } as const;
 export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES]['directory'];
@@ -374,6 +392,7 @@ export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['componen
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
 export type OUIDialogsComponents = (typeof OUI_DIRECTORIES)['DIALOGS']['components'][number];
+export type OUIHovercardsComponents = (typeof OUI_DIRECTORIES)['HOVER-CARDS']['components'][number];
 export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUINotificationsComponents =
 	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
@@ -381,6 +400,7 @@ export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITextareasComponents = (typeof OUI_DIRECTORIES)['TEXTAREAS']['components'][number];
+export type OUITooltipsComponents = (typeof OUI_DIRECTORIES)['TOOLTIPS']['components'][number];
 
 export type OUIComponent = Prettify<
 	| OUIAccordionsComponents
@@ -389,12 +409,14 @@ export type OUIComponent = Prettify<
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
 	| OUIDialogsComponents
+	| OUIHovercardsComponents
 	| OUIInputsComponents
 	| OUINotificationsComponents
 	| OUIRadiosComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
 	| OUITextareasComponents
+	| OUITooltipsComponents
 >;
 
 export interface OUIDirectoryToComponent {
@@ -404,10 +426,12 @@ export interface OUIDirectoryToComponent {
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
 	dialogs: OUIDialogsComponents;
+	'hover-cards': OUIHovercardsComponents;
 	inputs: OUIInputsComponents;
 	notifications: OUINotificationsComponents;
 	radios: OUIRadiosComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
 	textareas: OUITextareasComponents;
+	tooltips: OUITooltipsComponents;
 }
