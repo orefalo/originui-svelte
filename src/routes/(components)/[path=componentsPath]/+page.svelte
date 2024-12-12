@@ -49,7 +49,7 @@
 	<meta name="twitter:description" content={data.routeMetadata.seo.twitterDescription} />
 </svelte:head>
 
-<div class="_component-directory-wrapper">
+<div class="components-wrapper">
 	<DemoComponents.Wrapper
 		{componentCategories}
 		data-path={data.routeMetadata.path}
@@ -75,10 +75,9 @@
 	</DemoComponents.Wrapper>
 </div>
 
-<style>
-	._component-directory-wrapper {
-		display: contents;
-		:global {
+<div>
+	<style>
+		.components-wrapper {
 			.wrapper {
 				&[data-path='buttons'] {
 					text-align: center;
@@ -90,7 +89,10 @@
 				}
 
 				&[data-directory='tooltips'],
-				&[data-directory='switches'] {
+				&[data-directory='switches'],
+				&[data-directory='notifications'],
+				&[data-directory='alerts'],
+				&[data-directory='hover-cards'] {
 					display: flex;
 					justify-content: center;
 					align-items: center;
@@ -100,19 +102,11 @@
 					text-align: center;
 				}
 
-				&[data-directory='notifications'],
-				&[data-directory='alerts'],
-				&[data-directory='hover-cards'] {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-
 				&[data-component='notification-23'] {
 					grid-column: 1 / -1;
 					display: block;
 				}
 			}
 		}
-	}
-</style>
+	</style>
+</div>
