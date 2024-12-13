@@ -586,8 +586,6 @@ The project includes an automatic code collapsing system for better readability 
 5. **Documentation**
 
    - Include example usage
-   - Document any required props
-   - Note any dependencies
    - Add placeholder content for `.todo` and `.soon` components
 
 6. **Submitting the PR**
@@ -604,38 +602,6 @@ The project includes an automatic code collapsing system for better readability 
      - `docs:` for documentation
      - `refactor:` for code improvements
      - `chore:` for maintenance
-
-7. **PR Description Template**
-
-   ```markdown
-   ## Description
-
-   Brief description of changes
-
-   ## Type of change
-
-   - [ ] New component(s)
-   - [ ] Bug fix
-   - [ ] Documentation update
-   - [ ] Refactoring
-
-   ## Checklist
-
-   - [ ] Run `pnpm generate:registry`
-   - [ ] Tested in light/dark mode
-   - [ ] Responsive design verified
-   - [ ] Accessibility checked
-   - [ ] Documentation updated
-   ```
-
-8. **After Submission**
-   - Respond to review comments promptly
-   - Keep the PR focused and small
-   - Update your branch if needed:
-     ```bash
-     git fetch origin
-     git rebase origin/main
-     ```
 
 > [!NOTE]
 > Large PRs are harder to review. Consider breaking big changes into smaller, focused PRs.
