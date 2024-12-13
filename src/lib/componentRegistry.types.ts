@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/13/2024, 1:07:01 PM
+ * Last generated at: 12/13/2024, 8:19:11 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -219,6 +219,26 @@ export const OUI_DIRECTORIES = {
 			'dialog-21.svelte'
 		]
 	},
+	DROPDOWNS: {
+		directory: 'dropdowns',
+		components: [
+			'dropdown-01.svelte',
+			'dropdown-02.svelte',
+			'dropdown-03.svelte',
+			'dropdown-04.svelte',
+			'dropdown-05.svelte',
+			'dropdown-06.svelte',
+			'dropdown-07.svelte',
+			'dropdown-08.svelte',
+			'dropdown-09.svelte',
+			'dropdown-10.svelte',
+			'dropdown-11.svelte',
+			'dropdown-12.svelte',
+			'dropdown-13.svelte',
+			'dropdown-14.svelte',
+			'dropdown-15.svelte'
+		]
+	},
 	'HOVER-CARDS': {
 		directory: 'hover-cards',
 		components: ['hover-card-01.svelte', 'hover-card-02.svelte', 'hover-card-03.svelte']
@@ -311,6 +331,20 @@ export const OUI_DIRECTORIES = {
 			'notification-21.svelte',
 			'notification-22.svelte',
 			'notification-23.svelte'
+		]
+	},
+	POPOVERS: {
+		directory: 'popovers',
+		components: [
+			'popover-01.svelte',
+			'popover-02.svelte',
+			'popover-03.svelte',
+			'popover-04.svelte',
+			'popover-05.svelte',
+			'popover-06.svelte',
+			'popover-07.svelte',
+			'popover-08.svelte',
+			'popover-09.svelte'
 		]
 	},
 	RADIOS: {
@@ -440,10 +474,12 @@ export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['componen
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
 export type OUIDialogsComponents = (typeof OUI_DIRECTORIES)['DIALOGS']['components'][number];
+export type OUIDropdownsComponents = (typeof OUI_DIRECTORIES)['DROPDOWNS']['components'][number];
 export type OUIHovercardsComponents = (typeof OUI_DIRECTORIES)['HOVER-CARDS']['components'][number];
 export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUINotificationsComponents =
 	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
+export type OUIPopoversComponents = (typeof OUI_DIRECTORIES)['POPOVERS']['components'][number];
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
@@ -459,9 +495,11 @@ export type OUIComponent = Prettify<
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
 	| OUIDialogsComponents
+	| OUIDropdownsComponents
 	| OUIHovercardsComponents
 	| OUIInputsComponents
 	| OUINotificationsComponents
+	| OUIPopoversComponents
 	| OUIRadiosComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
@@ -478,9 +516,11 @@ export interface OUIDirectoryToComponent {
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
 	dialogs: OUIDialogsComponents;
+	dropdowns: OUIDropdownsComponents;
 	'hover-cards': OUIHovercardsComponents;
 	inputs: OUIInputsComponents;
 	notifications: OUINotificationsComponents;
+	popovers: OUIPopoversComponents;
 	radios: OUIRadiosComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
