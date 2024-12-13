@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/12/2024, 9:49:13 PM
+ * Last generated at: 12/13/2024, 10:31:22 AM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -50,6 +50,52 @@ export const OUI_DIRECTORIES = {
 			'alert-10.svelte',
 			'alert-11.svelte',
 			'alert-12.svelte'
+		]
+	},
+	AVATARS: {
+		directory: 'avatars',
+		components: [
+			'avatar-01.svelte',
+			'avatar-02.svelte',
+			'avatar-03.svelte',
+			'avatar-04.svelte',
+			'avatar-05.svelte',
+			'avatar-06.svelte',
+			'avatar-07.svelte',
+			'avatar-08.svelte',
+			'avatar-09.svelte',
+			'avatar-10.svelte',
+			'avatar-11.svelte',
+			'avatar-12.svelte',
+			'avatar-13.svelte',
+			'avatar-14.svelte',
+			'avatar-15.svelte',
+			'avatar-16.svelte',
+			'avatar-17.svelte',
+			'avatar-18.svelte',
+			'avatar-19.svelte',
+			'avatar-20.svelte',
+			'avatar-21.svelte',
+			'avatar-22.svelte',
+			'avatar-23.svelte'
+		]
+	},
+	BADGES: {
+		directory: 'badges',
+		components: [
+			'badge-01.svelte',
+			'badge-02.svelte',
+			'badge-03.svelte',
+			'badge-04.svelte',
+			'badge-05.svelte',
+			'badge-06.svelte',
+			'badge-07.svelte',
+			'badge-08.svelte',
+			'badge-09.svelte',
+			'badge-10.svelte',
+			'badge-11.svelte',
+			'badge-12.svelte',
+			'badge-13.svelte'
 		]
 	},
 	BANNERS: {
@@ -388,6 +434,8 @@ export type OUIDirectory = (typeof OUI_DIRECTORIES)[keyof typeof OUI_DIRECTORIES
 
 export type OUIAccordionsComponents = (typeof OUI_DIRECTORIES)['ACCORDIONS']['components'][number];
 export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components'][number];
+export type OUIAvatarsComponents = (typeof OUI_DIRECTORIES)['AVATARS']['components'][number];
+export type OUIBadgesComponents = (typeof OUI_DIRECTORIES)['BADGES']['components'][number];
 export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
@@ -405,6 +453,8 @@ export type OUITooltipsComponents = (typeof OUI_DIRECTORIES)['TOOLTIPS']['compon
 export type OUIComponent = Prettify<
 	| OUIAccordionsComponents
 	| OUIAlertsComponents
+	| OUIAvatarsComponents
+	| OUIBadgesComponents
 	| OUIBannersComponents
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
@@ -422,6 +472,8 @@ export type OUIComponent = Prettify<
 export interface OUIDirectoryToComponent {
 	accordions: OUIAccordionsComponents;
 	alerts: OUIAlertsComponents;
+	avatars: OUIAvatarsComponents;
+	badges: OUIBadgesComponents;
 	banners: OUIBannersComponents;
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
