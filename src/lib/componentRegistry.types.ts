@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/19/2024, 11:23:18 AM
+ * Last generated at: 12/23/2024, 12:32:27 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -112,6 +112,19 @@ export const OUI_DIRECTORIES = {
 			'banner-09.svelte',
 			'banner-10.svelte',
 			'banner-11.svelte'
+		]
+	},
+	BREADCRUMBS: {
+		directory: 'breadcrumbs',
+		components: [
+			'breadcrumb-01.svelte',
+			'breadcrumb-02.svelte',
+			'breadcrumb-03.svelte',
+			'breadcrumb-04.svelte',
+			'breadcrumb-05.svelte',
+			'breadcrumb-06.svelte',
+			'breadcrumb-07.svelte',
+			'breadcrumb-08.svelte'
 		]
 	},
 	BUTTONS: {
@@ -333,6 +346,23 @@ export const OUI_DIRECTORIES = {
 			'notification-23.svelte'
 		]
 	},
+	PAGINATIONS: {
+		directory: 'paginations',
+		components: [
+			'pagination-01.svelte',
+			'pagination-02.svelte',
+			'pagination-03.svelte',
+			'pagination-04.svelte',
+			'pagination-05.svelte',
+			'pagination-06.svelte',
+			'pagination-07.svelte',
+			'pagination-08.svelte',
+			'pagination-09.svelte',
+			'pagination-10.svelte',
+			'pagination-11.svelte',
+			'pagination-12.svelte'
+		]
+	},
 	POPOVERS: {
 		directory: 'popovers',
 		components: [
@@ -496,6 +526,8 @@ export type OUIAlertsComponents = (typeof OUI_DIRECTORIES)['ALERTS']['components
 export type OUIAvatarsComponents = (typeof OUI_DIRECTORIES)['AVATARS']['components'][number];
 export type OUIBadgesComponents = (typeof OUI_DIRECTORIES)['BADGES']['components'][number];
 export type OUIBannersComponents = (typeof OUI_DIRECTORIES)['BANNERS']['components'][number];
+export type OUIBreadcrumbsComponents =
+	(typeof OUI_DIRECTORIES)['BREADCRUMBS']['components'][number];
 export type OUIButtonsComponents = (typeof OUI_DIRECTORIES)['BUTTONS']['components'][number];
 export type OUICheckboxesComponents = (typeof OUI_DIRECTORIES)['CHECKBOXES']['components'][number];
 export type OUIDialogsComponents = (typeof OUI_DIRECTORIES)['DIALOGS']['components'][number];
@@ -504,6 +536,8 @@ export type OUIHovercardsComponents = (typeof OUI_DIRECTORIES)['HOVER-CARDS']['c
 export type OUIInputsComponents = (typeof OUI_DIRECTORIES)['INPUTS']['components'][number];
 export type OUINotificationsComponents =
 	(typeof OUI_DIRECTORIES)['NOTIFICATIONS']['components'][number];
+export type OUIPaginationsComponents =
+	(typeof OUI_DIRECTORIES)['PAGINATIONS']['components'][number];
 export type OUIPopoversComponents = (typeof OUI_DIRECTORIES)['POPOVERS']['components'][number];
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
@@ -518,6 +552,7 @@ export type OUIComponent = Prettify<
 	| OUIAvatarsComponents
 	| OUIBadgesComponents
 	| OUIBannersComponents
+	| OUIBreadcrumbsComponents
 	| OUIButtonsComponents
 	| OUICheckboxesComponents
 	| OUIDialogsComponents
@@ -525,6 +560,7 @@ export type OUIComponent = Prettify<
 	| OUIHovercardsComponents
 	| OUIInputsComponents
 	| OUINotificationsComponents
+	| OUIPaginationsComponents
 	| OUIPopoversComponents
 	| OUIRadiosComponents
 	| OUISlidersComponents
@@ -540,6 +576,7 @@ export interface OUIDirectoryToComponent {
 	avatars: OUIAvatarsComponents;
 	badges: OUIBadgesComponents;
 	banners: OUIBannersComponents;
+	breadcrumbs: OUIBreadcrumbsComponents;
 	buttons: OUIButtonsComponents;
 	checkboxes: OUICheckboxesComponents;
 	dialogs: OUIDialogsComponents;
@@ -547,6 +584,7 @@ export interface OUIDirectoryToComponent {
 	'hover-cards': OUIHovercardsComponents;
 	inputs: OUIInputsComponents;
 	notifications: OUINotificationsComponents;
+	paginations: OUIPaginationsComponents;
 	popovers: OUIPopoversComponents;
 	radios: OUIRadiosComponents;
 	sliders: OUISlidersComponents;
