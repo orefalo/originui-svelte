@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 12/23/2024, 12:32:27 PM
+ * Last generated at: 12/29/2024, 12:13:50 PM
  * @version 0.0.1
  * !!!!!!!!!!
  */
@@ -401,6 +401,62 @@ export const OUI_DIRECTORIES = {
 			'radio-19.svelte'
 		]
 	},
+	SELECTS: {
+		directory: 'selects',
+		components: [
+			'select-01.svelte',
+			'select-02.svelte',
+			'select-03.svelte',
+			'select-04.svelte',
+			'select-05.svelte',
+			'select-06.svelte',
+			'select-07.svelte',
+			'select-08.svelte',
+			'select-09.svelte',
+			'select-10.svelte',
+			'select-11.svelte',
+			'select-12.svelte',
+			'select-13.svelte',
+			'select-14.svelte',
+			'select-15.svelte',
+			'select-16.svelte',
+			'select-17.svelte',
+			'select-18.svelte',
+			'select-19.svelte',
+			'select-20.svelte',
+			'select-21.svelte',
+			'select-22.svelte',
+			'select-23.svelte',
+			'select-24.svelte',
+			'select-25.svelte',
+			'select-26.svelte',
+			'select-27.svelte',
+			'select-28.svelte',
+			'select-29.svelte',
+			'select-30.svelte',
+			'select-31.svelte',
+			'select-32.svelte',
+			'select-33.svelte',
+			'select-34.svelte',
+			'select-35.svelte',
+			'select-36.svelte',
+			'select-37.svelte',
+			'select-38.svelte',
+			'select-39.svelte',
+			'select-40.svelte',
+			'select-41.svelte',
+			'select-42.svelte',
+			'select-43.svelte',
+			'select-44.svelte',
+			'select-45.svelte',
+			'select-46.todo.svelte',
+			'select-47.todo.svelte',
+			'select-48.svelte',
+			'select-49.todo.svelte',
+			'select-50.todo.svelte',
+			'select-51.todo.svelte'
+		]
+	},
 	SLIDERS: {
 		directory: 'sliders',
 		components: [
@@ -540,6 +596,7 @@ export type OUIPaginationsComponents =
 	(typeof OUI_DIRECTORIES)['PAGINATIONS']['components'][number];
 export type OUIPopoversComponents = (typeof OUI_DIRECTORIES)['POPOVERS']['components'][number];
 export type OUIRadiosComponents = (typeof OUI_DIRECTORIES)['RADIOS']['components'][number];
+export type OUISelectsComponents = (typeof OUI_DIRECTORIES)['SELECTS']['components'][number];
 export type OUISlidersComponents = (typeof OUI_DIRECTORIES)['SLIDERS']['components'][number];
 export type OUISwitchesComponents = (typeof OUI_DIRECTORIES)['SWITCHES']['components'][number];
 export type OUITabsComponents = (typeof OUI_DIRECTORIES)['TABS']['components'][number];
@@ -563,6 +620,7 @@ export type OUIComponent = Prettify<
 	| OUIPaginationsComponents
 	| OUIPopoversComponents
 	| OUIRadiosComponents
+	| OUISelectsComponents
 	| OUISlidersComponents
 	| OUISwitchesComponents
 	| OUITabsComponents
@@ -587,6 +645,7 @@ export interface OUIDirectoryToComponent {
 	paginations: OUIPaginationsComponents;
 	popovers: OUIPopoversComponents;
 	radios: OUIRadiosComponents;
+	selects: OUISelectsComponents;
 	sliders: OUISlidersComponents;
 	switches: OUISwitchesComponents;
 	tabs: OUITabsComponents;

@@ -83,10 +83,25 @@ export const COMPONENT_ROUTES = {
 			twitterTitle: 'Checkboxes, Radios, and Switches'
 		}
 	},
-	/*
-	 TODO: Add Selects
-	 */
-
+	selects: {
+		componentDirectory: ['selects'],
+		header: {
+			description:
+				'A growing collection of over ${count} select components built with Svelte and TailwindCSS.',
+			title: 'Select'
+		},
+		label: 'Selects',
+		path: 'selects',
+		seo: {
+			description:
+				'An extensive collection of copy-and-paste Select components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			keywords: 'select, component, svelte, tailwindcss',
+			title: 'Selects',
+			twitterDescription:
+				'An extensive collection of copy-and-paste Select components built with Svelte and TailwindCSS. Open-source and ready to drop into your projects.',
+			twitterTitle: 'Selects'
+		}
+	},
 	sliders: {
 		componentDirectory: ['sliders'],
 		header: {
