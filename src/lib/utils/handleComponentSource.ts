@@ -2,7 +2,6 @@ import type { OUIComponent, OUIDirectory } from '$lib/componentRegistry.types.js
 import type { Component } from 'svelte';
 
 import { highlighterSvelte, highlighterZsh } from './codePreview.js';
-import { COLLAPSIBLE_END_REGEX, COLLAPSIBLE_START_REGEX } from './shiki-transformer/collapsible.js';
 import {
 	ENHANCED_IMAGE_REGEX,
 	POSSIBLE_DEPENDENCIES,
@@ -36,13 +35,6 @@ const getImports = (): ComponentImports => {
 		) as Record<string, () => Promise<string>>
 	};
 };
-
-function removeShikiComments(source: string) {
-	return source
-		.split('\n')
-		.filter((line) => !line.match(COLLAPSIBLE_START_REGEX) && !line.match(COLLAPSIBLE_END_REGEX))
-		.join('\n');
-}
 
 function getDependencies(source: string): PossibleDependency[] {
 	const dependencies = new Set<PossibleDependency>();
@@ -102,8 +94,6 @@ async function processComponentSource(rawSource: string) {
 	const dependencies = getDependencies(rawSource);
 	const dependenciesInstallCommand = getDependenciesInstallCommand(dependencies);
 
-	const cleanedSource = removeShikiComments(rawSource);
-
 	const [highlightedCleanedSource, highlightedInstallCommand] = await Promise.all([
 		highlighterSvelte(rawSource),
 		highlighterZsh(dependenciesInstallCommand)
@@ -112,7 +102,7 @@ async function processComponentSource(rawSource: string) {
 	return {
 		code: {
 			highlighted: { content: highlightedCleanedSource },
-			raw: { content: cleanedSource }
+			raw: { content: rawSource }
 		},
 		componentDependencies: {
 			command: {
@@ -124,12 +114,6 @@ async function processComponentSource(rawSource: string) {
 	} as const;
 }
 
-export async function getCompiledComponent(path: string) {
-	const imports = getImports();
-	if (!imports.compiled[path]) return null;
-	return (await imports.compiled[path]()) ?? null;
-}
-
 export async function getComponentSource(directory: OUIDirectory, componentName: OUIComponent) {
 	const path = buildComponentPath(directory, componentName);
 	const imports = getImports();
@@ -137,10 +121,8 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 
 	const processedComponentSource = await processComponentSource(await importFn());
 
-	const hasContent = Boolean(processedComponentSource.code.raw.content?.trim());
 	const componentState = {
-		isAvailable: hasContent && !componentName.includes('.soon') && !componentName.includes('.todo'),
-		isComingSoon: componentName.includes('.soon') && hasContent,
+		isAvailable: !componentName.includes('.todo'),
 		isTodo: componentName.includes('.todo')
 	};
 
@@ -151,17 +133,6 @@ export async function getComponentSource(directory: OUIDirectory, componentName:
 			directory,
 			id: componentName,
 			name: componentName.replace('.todo', ''),
-			path
-		} as const;
-	}
-
-	if (componentState.isComingSoon) {
-		return {
-			...processedComponentSource,
-			availability: 'soon',
-			directory,
-			id: componentName,
-			name: componentName.replace('.soon', ''),
 			path
 		} as const;
 	}

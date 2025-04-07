@@ -1,5 +1,9 @@
-<script module lang="ts">
-	// [!code collapse-start]
+<script lang="ts">
+	import Button from '$lib/components/ui/button.svelte';
+	import Label from '$lib/components/ui/label.svelte';
+
+	import * as Command from '$lib/components/ui/command';
+	import * as Popover from '$lib/components/ui/popover';
 	import Blocks from 'lucide-svelte/icons/blocks';
 	import Brain from 'lucide-svelte/icons/brain';
 	import LineChart from 'lucide-svelte/icons/chart-line';
@@ -12,6 +16,8 @@
 	import Search from 'lucide-svelte/icons/search';
 	import Server from 'lucide-svelte/icons/server';
 
+	let open = $state(false);
+	let value = $state('');
 	const items = [
 		{
 			icon: LineChart,
@@ -73,19 +79,7 @@
 			number: 123,
 			value: 'frontend services'
 		}
-	];
-	// [!code collapse-end]
-</script>
-
-<script lang="ts">
-	import Button from '$lib/components/ui/button.svelte';
-	import Label from '$lib/components/ui/label.svelte';
-
-	import * as Command from '$lib/components/ui/command';
-	import * as Popover from '$lib/components/ui/popover';
-
-	let open = $state(false);
-	let value = $state('');
+	] as const;
 
 	const selectedItem = $derived(items.find((item) => item.value === value));
 
@@ -96,12 +90,11 @@
 </script>
 
 <div class="space-y-2">
-	<Label for="select-45">Options with icon and number</Label>
+	<Label>Options with icon and number</Label>
 	<Popover.Root bind:open>
 		<Popover.Trigger>
 			{#snippet child({ props })}
 				<Button
-					id="select-45"
 					variant="outline"
 					role="combobox"
 					aria-expanded={open}

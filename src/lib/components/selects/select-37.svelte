@@ -1,5 +1,7 @@
-<script module lang="ts">
-	// [!code collapse-start]
+<script lang="ts">
+	import Label from '$lib/components/ui/label.svelte';
+	import * as Select from '$lib/components/ui/select/index.js';
+
 	const continents = [
 		{
 			countries: [
@@ -40,23 +42,18 @@
 			],
 			label: 'Oceania'
 		}
-	];
-	// [!code collapse-end]
-</script>
+	] as const;
 
-<script lang="ts">
-	import Label from '$lib/components/ui/label.svelte';
-	import * as Select from '$lib/components/ui/select/index.js';
-
-	const items = continents.reduce(
-		(previous: (typeof continents)[number]['countries'], current) =>
-			previous.concat(current.countries),
+	const items = continents.reduce<(typeof continents)[number]['countries'][number][]>(
+		(previous, current) => [...previous, ...current.countries],
 		[]
 	);
 
 	let value = $state('s2');
 
 	const selected = $derived(items.find((i) => i.value === value));
+
+	const uid = $props.id();
 </script>
 
 {#snippet country(item: (typeof items)[number])}
@@ -65,10 +62,10 @@
 {/snippet}
 
 <div class="space-y-2">
-	<Label for="select-37">Options with flag</Label>
+	<Label for={uid}>Options with flag</Label>
 	<Select.Root type="single" bind:value>
 		<Select.Trigger
-			id="select-37"
+			id={uid}
 			class="[&>span]:flex [&>span]:items-center [&>span]:gap-2 [&>span_svg]:shrink-0 [&>span_svg]:text-muted-foreground/80"
 		>
 			<span>
