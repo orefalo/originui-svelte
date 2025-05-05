@@ -17,13 +17,14 @@
 	bind:checked
 	bind:indeterminate
 	class={cn(
-		'peer size-4 shrink-0 rounded border border-input shadow-sm shadow-black/[.04] ring-offset-background transition-shadow focus-visible:border-ring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=indeterminate]:border-primary data-[state=checked]:bg-primary data-[state=indeterminate]:bg-primary data-[state=checked]:text-primary-foreground data-[state=indeterminate]:text-primary-foreground',
+		'peer size-4 shrink-0 rounded-[4px] border border-input shadow-sm outline-none transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground [&_[aria-invalid]]:border-destructive [&_[aria-invalid]]:ring-destructive/20 dark:[&_[aria-invalid]]:ring-destructive/40',
+
 		className
 	)}
 	{...restProps}
 >
 	{#snippet children({ checked, indeterminate })}
-		<div class="flex items-center justify-center text-current">
+		<div class="grid place-content-center text-current">
 			{#if checked === true}
 				<svg
 					width="9"
