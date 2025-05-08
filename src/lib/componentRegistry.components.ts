@@ -2,7 +2,11 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
+<<<<<<< HEAD
  * Last generated at: 5/8/2025, 12:26:40 AM
+=======
+ * Last generated at: 3/30/2025, 6:08:55 PM
+>>>>>>> parent of d80c701 (feat: tables)
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -598,6 +602,7 @@ export const OUI_DIRECTORIES = {
 			ready: 17
 		}
 	},
+<<<<<<< HEAD
 	TABLES: {
 		directory: 'tables',
 		name: 'Tables',
@@ -628,6 +633,8 @@ export const OUI_DIRECTORIES = {
 			ready: 19
 		}
 	},
+=======
+>>>>>>> parent of d80c701 (feat: tables)
 	TABS: {
 		directory: 'tabs',
 		name: 'Tabs',
