@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button.svelte';
 
-	import ChevronDownIcon from 'lucide-svelte/icons/chevron-down';
-	import ChevronUpIcon from 'lucide-svelte/icons/chevron-up';
+	import IconChevronDown from 'lucide-svelte/icons/chevron-down';
+	import IconChevronUp from 'lucide-svelte/icons/chevron-up';
 
 	let isExpanded = $state(false);
 
@@ -12,17 +12,15 @@
 </script>
 
 <Button
-	class="gap-1"
 	variant="ghost"
 	onclick={toggleExpand}
 	aria-expanded={isExpanded}
 	aria-controls="expandable-content"
 >
+	{isExpanded ? 'Show less' : 'Show more'}
 	{#if isExpanded}
-		Show less
-		<ChevronUpIcon className="-me-1" size={16} stroke-width="2" aria-hidden="true" />
+		<IconChevronUp class="-me-1 ms-1" size={16} stroke-width="2" aria-hidden="true" />
 	{:else}
-		Show more
-		<ChevronDownIcon className="-me-1" size={16} stroke-width="2" aria-hidden="true" />
+		<IconChevronDown class="-me-1 ms-1" size={16} stroke-width="2" aria-hidden="true" />
 	{/if}
 </Button>
