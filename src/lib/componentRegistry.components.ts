@@ -2,7 +2,7 @@
 /**
  * !!!!!!!!!!
  * This file is auto-generated. Do not edit manually
- * Last generated at: 5/24/2025, 11:03:19 PM
+ * Last generated at: 5/25/2025, 7:58:07 PM
  * To update, run: pnpm generate:registry --format
  * @version 0.0.1
  * !!!!!!!!!!
@@ -739,11 +739,14 @@ export const OUI_DIRECTORIES = {
 			'tree-02.svelte',
 			'tree-03.svelte',
 			'tree-04.svelte',
-			'tree-05.svelte'
+			'tree-05.svelte',
+			'tree-06.svelte',
+			'tree-07.svelte',
+			'tree-08.svelte'
 		],
 		status: {
 			todo: 0,
-			ready: 5
+			ready: 8
 		}
 	}
 } as const;

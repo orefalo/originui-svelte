@@ -1,22 +1,15 @@
 <script lang="ts">
 	import {
-		createOnDropHandler,
-		dragAndDropFeature,
 		hotkeysCoreFeature,
-		keyboardDragAndDropFeature,
+		type ItemInstance,
+		renamingFeature,
 		selectionFeature,
 		syncDataLoaderFeature
 	} from '@headless-tree/core';
 	import FolderIcon from '@lucide/svelte/icons/folder';
 	import FolderOpenIcon from '@lucide/svelte/icons/folder-open';
-	import {
-		Tree,
-		TreeAssistiveTreeDescription,
-		TreeDragLine,
-		TreeItem,
-		TreeLabel,
-		useTree
-	} from '$lib/components/ui/tree';
+	import { Tree, TreeItem, TreeLabel, useTree } from '$lib/components/ui/tree';
+
 	interface Item {
 		children?: string[];
 		name: string;
@@ -50,49 +43,35 @@
 		tokens: { name: 'Tokens' },
 		'web-platform': { name: 'Web Platform' }
 	};
-	let items = $state(initialItems);
+	let items = $state.raw(initialItems);
 
 	const indent = 20;
 
-	const tree = $derived(
-		useTree<Item>({
-			canReorder: true,
-			dataLoader: {
-				getChildren: (itemId) => items[itemId].children ?? [],
-				getItem: (itemId) => items[itemId]
-			},
-			features: [
-				syncDataLoaderFeature,
-				selectionFeature,
-				hotkeysCoreFeature,
-				dragAndDropFeature,
-				keyboardDragAndDropFeature
-			],
-			getItemName: (item) => item.getItemData().name,
-			indent,
-			initialState: {
-				expandedItems: ['engineering', 'frontend', 'design-system'],
-				selectedItems: ['components']
-			},
-			isItemFolder: (item) => (item.getItemData()?.children?.length ?? 0) > 0,
-			onDrop: createOnDropHandler((parentItem, newChildrenIds) => {
-				items = {
-					...items,
-					[parentItem.getId()]: {
-						...items[parentItem.getId()],
-						children: newChildrenIds
-					}
-				};
-			}),
-			rootItemId: 'company'
-		})
-	);
+	const onRename = (item: ItemInstance<Item>, value: string) => {
+		items[item.getId()].name = value;
+	};
+	const tree = useTree<Item>({
+		canReorder: true,
+		dataLoader: {
+			getChildren: (itemId) => items[itemId].children ?? [],
+			getItem: (itemId) => items[itemId]
+		},
+		features: [syncDataLoaderFeature, hotkeysCoreFeature, renamingFeature, selectionFeature],
+		getItemName: (item) => item.getItemData().name,
+		indent,
+		initialState: {
+			expandedItems: ['engineering', 'frontend', 'design-system'],
+			selectedItems: ['components']
+		},
+		isItemFolder: (item) => (item.getItemData()?.children?.length ?? 0) > 0,
+		onRename,
+		rootItemId: 'company'
+	});
 </script>
 
 <div class="flex h-full flex-col gap-2 *:first:grow">
 	<div>
 		<Tree {indent} tree={tree.current}>
-			<TreeAssistiveTreeDescription tree={tree.current} />
 			{#each tree.current.getItems() as item (item.getId())}
 				<TreeItem {item}>
 					<TreeLabel>
@@ -105,12 +84,20 @@
 								{/if}
 							{/if}
 
-							{item.getItemName()}
+							{#if item.isRenaming()}
+								{@const { attacher, ...rest } = item.getRenameInputProps()}
+								<input
+									{...attacher}
+									{...rest}
+									class="flex h-6 w-full rounded-lg border border-input bg-background px-1 py-0 text-sm text-foreground shadow-sm shadow-black/5 transition-shadow placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
+								/>
+							{:else}
+								{item.getItemName()}
+							{/if}
 						</span>
 					</TreeLabel>
 				</TreeItem>
 			{/each}
-			<TreeDragLine />
 		</Tree>
 	</div>
 </div>

@@ -47,7 +47,7 @@
 			({
 				'aria-expanded': item.isExpanded(),
 				class: cn(
-					'z-10 ps-[--tree-padding] outline-hidden select-none not-last:pb-0.5 focus:z-20 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+					'group/tree-item z-10 ps-[--tree-padding] outline-none select-none not-last:pb-0.5 focus:z-20 data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
 					className
 				),
 				'data-drag-target':

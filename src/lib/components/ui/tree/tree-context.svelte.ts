@@ -1,4 +1,4 @@
-import type { ItemInstance } from '@headless-tree/core';
+import type { ItemInstance, TreeInstance } from '@headless-tree/core';
 
 import { Context } from 'runed';
 
@@ -7,7 +7,7 @@ export interface TreeContextValue<T = any> {
 	currentItem?: ItemInstance<T>;
 	indent: number;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	tree?: any;
+	tree?: TreeInstance<T>;
 }
 
 export const treeContext = new Context<TreeContextValue | undefined>('tree:context');

@@ -32,7 +32,13 @@
 </script>
 
 <TreeContextProvider {tree} {indent}>
-	<div data-slot="tree" style={mergedStyle} class={cn('flex flex-col', className)} {...otherProps}>
+	<div
+		data-slot="tree"
+		style={mergedStyle}
+		class={cn('flex flex-col', className)}
+		{...otherProps}
+		{...containerProps.attacher}
+	>
 		{@render children?.()}
 	</div>
 </TreeContextProvider>

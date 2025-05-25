@@ -32,13 +32,15 @@
 	<span
 		data-slot="tree-item-label"
 		class={cn(
-			'in-focus-visible:ring-ring/50 in-data-[selected=true]:bg-accent in-data-[selected=true]:text-accent-foreground in-data-[drag-target=true]:bg-accent in-focus-visible:ring-[3px] in-data-[search-match=true]:bg-blue-400/20! not-in-data-[folder=true]:ps-7 flex items-center gap-1 rounded-sm bg-background px-2 py-1.5 text-sm transition-colors hover:bg-accent [&_svg]:pointer-events-none [&_svg]:shrink-0',
+			'flex items-center gap-1 rounded-sm bg-background px-2 py-1.5 text-sm transition-colors hover:bg-accent  data-[selected=true]:bg-accent data-[folder=true]:ps-7 group-data-[selected=true]/tree-item:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0',
+			'group-data-[drag-target=true]/tree-item:bg-accent group-data-[search-match=true]/tree-item:bg-blue-400/20 group-data-[selected=true]/tree-item:bg-accent',
+			'group-focus-visible/tree-item:outline-none group-focus-visible/tree-item:ring-[3px] group-focus-visible/tree-item:ring-ring/50',
 			className
 		)}
 		{...restProps}
 	>
 		{#if item.isFolder()}
-			<ChevronDownIcon class="in-aria-[expanded=false]:-rotate-90 size-4 text-muted-foreground" />
+			<ChevronDownIcon class="size-4 text-muted-foreground aria-[expanded=false]:-rotate-90" />
 		{/if}
 		{#if children}
 			{@render children?.()}
