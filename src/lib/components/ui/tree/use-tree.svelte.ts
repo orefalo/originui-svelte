@@ -1,11 +1,18 @@
+/**
+ * This is a workaround to allow for behavior in Svelte.
+ * DO NOT USE THIS IN PRODUCTION.
+ * If you have a better solution, please submit a PR. Even better, submit a PR to https://github.com/lukasbach/headless-tree
+ * to give svelte a native way to handle this.
+ */
+
 import {
 	createTree,
 	type FeatureImplementation,
 	type ItemInstance,
 	type TreeConfig,
-	type TreeInstance,
-	type TreeState
+	type TreeInstance
 } from '@headless-tree/core';
+import { tick } from 'svelte';
 import { createAttachmentKey } from 'svelte/attachments';
 import { createSubscriber } from 'svelte/reactivity';
 
@@ -14,168 +21,170 @@ export const svelteFeatures: FeatureImplementation = {
 	itemInstance: {
 		getProps: ({ prev }) => {
 			const props = prev?.() ?? {};
-
 			return {
 				...props,
-				attacher: {
-					[createAttachmentKey()]: (node: HTMLElement) => {
-						props.ref?.(node);
-					}
+				[createAttachmentKey()]: (node: HTMLElement) => {
+					props.ref(node);
 				},
+				onblur: props.onBlur ? (e: FocusEvent) => props.onBlur(e) : undefined,
 				onclick: props.onClick ? (e: MouseEvent) => props.onClick(e) : undefined,
 				ondragend: props.onDragEnd ? (e: DragEvent) => props.onDragEnd(e) : undefined,
 				ondragleave: props.onDragLeave ? (e: DragEvent) => props.onDragLeave(e) : undefined,
 				ondragover: props.onDragOver ? (e: DragEvent) => props.onDragOver(e) : undefined,
 				ondragstart: props.onDragStart ? (e: DragEvent) => props.onDragStart(e) : undefined,
-				ondrop: props.onDrop ? (e: DragEvent) => props.onDrop(e) : undefined
+				ondrop: props.onDrop ? (e: DragEvent) => props.onDrop(e) : undefined,
+				onfocus: props.onFocus ? (e: FocusEvent) => props.onFocus(e) : undefined
 			};
 		},
 		getRenameInputProps({ prev }) {
 			const { onBlur, onChange, ...props } = prev?.() ?? {};
-
 			return {
 				...props,
 				[createAttachmentKey()]: (node: HTMLElement) => {
 					props.ref?.(node);
 				},
 				onblur: onBlur ? (e: FocusEvent) => onBlur(e) : undefined,
+				// Couldn't get onChange to work, so we're using oninput instead
 				oninput: onChange ? (e: Event) => onChange(e) : undefined
 			};
 		}
 	},
+
 	treeInstance: {
 		getContainerProps({ prev }, ...rest) {
 			const props = prev?.() ?? {};
 			return {
 				...props,
 				...rest,
-				attacher: {
-					[createAttachmentKey()]: (node: HTMLElement) => {
-						props.ref?.(node);
-					}
+				[createAttachmentKey()]: (node: HTMLElement) => {
+					props.ref(node);
 				}
 			};
 		},
 		getSearchInputElementProps({ prev }, ...rest) {
 			const { onBlur, onChange, ...props } = prev?.() ?? {};
-			const extendedOnChange = (e: Event) => {
-				onChange?.(e);
-			};
 			return {
 				...props,
 				...rest,
+
 				[createAttachmentKey()]: (node: HTMLElement) => {
 					props.ref?.(node);
 				},
+
 				onblur: onBlur ? (e: FocusEvent) => onBlur(e) : undefined,
-				oninput: onChange ? (e: Event) => extendedOnChange(e) : undefined
+				// Couldn't get onChange to work, so we're using oninput instead
+				oninput: onChange ? (e: Event) => onChange(e) : undefined
 			};
 		}
 	}
 };
 
+// Create a reactive proxy for ItemInstance
+type ReactiveItemInstance<T> = ItemInstance<T> & {
+	[K in keyof ItemInstance<T>]: ItemInstance<T>[K] extends (...args: never[]) => unknown
+		? (...args: Parameters<ItemInstance<T>[K]>) => ReturnType<ItemInstance<T>[K]>
+		: ItemInstance<T>[K];
+};
+
 export class ReactiveTree<T> {
-	#tree: TreeInstance<T>;
+	#tree = $state.raw<TreeInstance<T>>()!;
 	#subscribe: () => void;
-	#currentState: TreeState<T>;
-	#itemProxies = new Map<string, ItemInstance<T>>();
-	#treeProxy: null | TreeInstance<T> = null;
+	#itemProxies = new WeakMap<ItemInstance<T>, ReactiveItemInstance<T>>();
 
 	constructor(config: TreeConfig<T>) {
 		const configWithFeatures: TreeConfig<T> = {
 			...config,
 			features: [...(config.features ?? []), svelteFeatures]
 		};
+
 		this.#tree = createTree(configWithFeatures);
 
-		this.#currentState = this.#tree.getState();
-
 		this.#subscribe = createSubscriber((update) => {
-			this.#tree.setConfig((prev) => ({
-				...prev,
-				...config,
-				features: [...(config.features ?? []), svelteFeatures],
+			// Store the original methods
+			const originalSetState = this.#tree.setState;
+			const originalApplySubStateUpdate = this.#tree.applySubStateUpdate;
+			const originalGetItems = this.#tree.getItems;
 
-				setState: (newState) => {
-					this.#currentState = {
-						...this.#currentState,
-						...newState
-					};
-					config.setState?.(this.#currentState);
-					// Clear item proxies cache when state changes to ensure fresh reactive state
-					this.#itemProxies.clear();
-					// Trigger reactive updates when tree state changes
+			this.#tree.setState = (state) => {
+				originalSetState.call(this.#tree, state);
+				tick().then(() => {
 					update();
-				},
-				state: {
-					...this.#currentState,
-					...config.state
-				}
-			}));
+				});
+			};
 
-			// Do we need a cleanup?
-			return () => {};
-		});
+			// Override applySubStateUpdate to handle for example selection and drag-and-drop changes
+			this.#tree.applySubStateUpdate = ((
+				...args: Parameters<typeof originalApplySubStateUpdate>
+			) => {
+				originalApplySubStateUpdate.apply(this.#tree, args);
+				tick().then(() => {
+					update();
+				});
+			}) as typeof originalApplySubStateUpdate;
 
-		// Create the tree proxy once
-		this.#treeProxy = this.#createTreeProxy();
-	}
-
-	#createItemProxy(item: ItemInstance<T>): ItemInstance<T> {
-		const proxy = new Proxy(item, {
-			get: (target, prop) => {
-				// Make these methods reactive by subscribing when they're called
-				if (typeof prop === 'string' && (prop.startsWith('is') || prop.startsWith('get'))) {
-					return (...args: unknown[]) => {
-						this.#subscribe(); // Subscribe to reactive updates
-						const method = target[prop as keyof ItemInstance<T>] as (...args: unknown[]) => unknown;
-						return method?.apply(target, args);
-					};
-				}
-
-				return target[prop as keyof ItemInstance<T>];
-			}
-		});
-
-		return proxy;
-	}
-
-	#createTreeProxy(): TreeInstance<T> {
-		return new Proxy(this.#tree, {
-			get: (target, prop) => {
-				// Make getItems return proxied items
-				if (prop === 'getItems') {
-					return () => {
-						this.#subscribe(); // Subscribe to reactive updates
-						const items = target.getItems();
-						return items.map((item) => {
-							const itemId = item.getId();
-							if (!this.#itemProxies.has(itemId)) {
-								this.#itemProxies.set(itemId, this.#createItemProxy(item));
-							}
-							return this.#itemProxies.get(itemId)!;
-						});
-					};
-				}
-
-				// Make other tree methods reactive
-				if (typeof prop === 'string' && prop.startsWith('get')) {
-					return (...args: unknown[]) => {
-						this.#subscribe(); // Subscribe to reactive updates
-						const method = target[prop as keyof TreeInstance<T>] as (...args: unknown[]) => unknown;
-						return method?.apply(target, args);
-					};
-				}
-
-				return target[prop as keyof TreeInstance<T>];
-			}
+			this.#tree.getItems = (...args: Parameters<typeof originalGetItems>) => {
+				const items = originalGetItems.apply(this.#tree, args);
+				return items.map((item) => this.#createReactiveItemProxy(item));
+			};
+			return () => {
+				this.#tree.setState = originalSetState;
+				this.#tree.applySubStateUpdate = originalApplySubStateUpdate;
+				this.#tree.getItems = originalGetItems;
+			};
 		});
 	}
 
 	get current(): TreeInstance<T> {
 		this.#subscribe();
-		return this.#treeProxy!;
+		return this.#tree;
+	}
+
+	// Create a reactive proxy for an item instance
+	#createReactiveItemProxy(item: ItemInstance<T>): ReactiveItemInstance<T> {
+		if (this.#itemProxies.has(item)) {
+			return this.#itemProxies.get(item)!;
+		}
+
+		const proxy = new Proxy(item, {
+			get: (target, prop: string | symbol) => {
+				const value = target[prop as keyof ItemInstance<T>];
+
+				// If it's a function, check if it should be reactive
+				// !TODO: this is a hack to make all methods reactive, we should only make the methods that are needed reactive
+				if (typeof value === 'function' && typeof prop === 'string') {
+					return (...args: unknown[]) => {
+						// Make the call reactive
+						this.#subscribe();
+						return (value as (...args: unknown[]) => unknown).apply(target, args);
+					};
+				}
+
+				// For non-reactive methods and properties, return as-is
+				return value;
+			}
+		}) as ReactiveItemInstance<T>;
+
+		// Cache the proxy
+		this.#itemProxies.set(item, proxy);
+		return proxy;
+	}
+
+	// Simple reactive helper - call this with any item method to make it reactive
+	/**
+	 * @param fn - The function to make reactive
+	 * @returns The result of the function
+	 * @example
+	 * ```ts
+	 * const isFolder = tree.reactive(() => item.isFolder());
+	 * ```
+	 */
+	reactive<R>(fn: () => R): R {
+		this.#subscribe();
+		return fn();
 	}
 }
 
 export const useTree = <T>(config: TreeConfig<T>) => new ReactiveTree<T>(config);
+
+// Export the reactive item instance type for use in components
+export type { ReactiveItemInstance };
