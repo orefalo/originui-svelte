@@ -34,6 +34,7 @@
 		"runed": "^0.28.0",
 		"svelte-sonner": "^0.3.28",
 		"svelte-tel-input": "^3.6.0",
+		"svelte-toolbelt": "^0.9.1",
 		"tailwind-merge": "^2.5.4",
 		"tailwind-variants": "^0.2.1",
 		"vaul-svelte": "1.0.0-next.2",
