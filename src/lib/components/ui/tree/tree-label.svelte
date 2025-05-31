@@ -1,12 +1,14 @@
 <!-- eslint-disable-next-line @typescript-eslint/no-explicit-any -->
 <script lang="ts" generics="T = any">
 	import type { ItemInstance } from '@headless-tree/core';
-	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
+	import { useTreeContext } from './tree-context.svelte';
+
 	import ChevronDownIcon from '@lucide/svelte/icons/chevron-down';
+	import { cn } from '$lib/utils';
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	interface TreeItemLabelProps<T = any> extends HTMLAttributes<HTMLSpanElement> {
+	interface TreeItemLabelProps<T = any> extends HTMLAttributes<HTMLElement> {
 		item?: ItemInstance<T>;
 	}
 
@@ -16,12 +18,9 @@
 		item: propItem,
 		...restProps
 	}: TreeItemLabelProps<T> = $props();
-	import { useTreeContext } from './tree-context.svelte';
 
-	import { cn } from '$lib/utils';
-
-	const { currentItem } = useTreeContext<T>();
-	const item = $derived(propItem || currentItem);
+	const ctx = useTreeContext<T>();
+	const item = propItem || ctx.currentItem;
 
 	if (!item) {
 		console.warn('TreeItemLabel: No item provided via props or context');

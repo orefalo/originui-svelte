@@ -17,14 +17,14 @@
 
 	const ctx = useTreeContext();
 
-	if (!ctx.tree || typeof ctx.tree.getDragLineStyle !== 'function') {
+	if (!ctx.tree || typeof ctx.tree.current.getDragLineStyle !== 'function') {
 		console.warn(
 			'TreeDragLine: No tree provided via context or tree does not have getDragLineStyle method'
 		);
 	}
 
 	const dragLine = $derived.by(() =>
-		Object.entries(ctx.tree?.getDragLineStyle() ?? {})
+		Object.entries(ctx.tree?.reactive(() => ctx.tree?.current.getDragLineStyle()) ?? {})
 			.map(([key, value]) => `${key}: ${value}`)
 			.join('; ')
 	);

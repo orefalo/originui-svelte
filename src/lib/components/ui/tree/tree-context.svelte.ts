@@ -1,13 +1,12 @@
-import type { ItemInstance, TreeInstance } from '@headless-tree/core';
-
 import { Context } from 'runed';
+
+import type { ReactiveItemInstance, ReactiveTree } from './use-tree.svelte';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface TreeContextValue<T = any> {
-	currentItem?: ItemInstance<T>;
+	currentItem?: ReactiveItemInstance<T>;
 	indent: number;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	tree?: TreeInstance<T>;
+	tree?: ReactiveTree<T>;
 }
 
 export const treeContext = new Context<TreeContextValue | undefined>('tree:context');
