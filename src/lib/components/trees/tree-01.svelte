@@ -56,16 +56,38 @@
 	});
 </script>
 
-<Tree
-	class="relative before:absolute before:inset-0 before:-ms-1 before:bg-[repeating-linear-gradient(to_right,transparent_0,transparent_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)))]"
-	{indent}
-	tree={tree.current}
->
-	{#each tree.current.getItems() as item (item.getId())}
-		<TreeItem {item}>
-			<TreeLabel>
-				{item.getItemData().name}
-			</TreeLabel>
-		</TreeItem>
-	{/each}
-</Tree>
+<div class="flex h-full flex-col gap-2 *:first:grow">
+	<Tree
+		class="relative before:absolute before:inset-0 before:-ms-1 before:bg-[repeating-linear-gradient(to_right,transparent_0,transparent_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)-1px),var(--border)_calc(var(--tree-indent)))]"
+		{indent}
+		{tree}
+	>
+		{#each tree.current.getItems() as item (item.getId())}
+			<TreeItem {item}>
+				<TreeLabel>
+					{item.getItemData().name}
+				</TreeLabel>
+			</TreeItem>
+		{/each}
+	</Tree>
+	<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+		Basic tree with no extra features ∙
+		<a
+			href="https://headless-tree.lukasbach.com"
+			class="underline hover:text-foreground"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Headless Tree
+		</a>
+		∙
+		<a
+			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
+			class="underline hover:text-foreground"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Svelte Integration
+		</a>
+	</p>
+</div>

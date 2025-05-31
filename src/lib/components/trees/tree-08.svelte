@@ -270,7 +270,7 @@
 	</div>
 
 	<div>
-		<Tree {indent} tree={tree.current}>
+		<Tree {indent} {tree}>
 			{#if searchValue && filteredItems.length === 0}
 				<p class="px-3 py-4 text-center text-sm">No items found for "{searchValue}"</p>
 			{:else}
@@ -308,7 +308,16 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			API
+			Headless Tree
+		</a>
+		∙
+		<a
+			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
+			class="underline hover:text-foreground"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Svelte Integration
 		</a>
 	</p>
 </div>

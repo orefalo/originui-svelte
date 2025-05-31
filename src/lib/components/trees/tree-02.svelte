@@ -59,7 +59,7 @@
 		<Tree
 			class="relative before:absolute before:inset-0 before:-ms-1 before:bg-[repeating-linear-gradient(to_right,transparent_0,transparent_calc(var(--tree-indent)-1px),hsl(var(--border))_calc(var(--tree-indent)-1px),hsl(var(--border))_calc(var(--tree-indent)))]"
 			{indent}
-			tree={tree.current}
+			{tree}
 		>
 			{#each tree.current.getItems() as item (item.getId())}
 				<TreeItem {item}>
@@ -69,5 +69,25 @@
 				</TreeItem>
 			{/each}
 		</Tree>
+		<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+			Basic tree with vertical lines ∙
+			<a
+				href="https://headless-tree.lukasbach.com"
+				class="underline hover:text-foreground"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Headless Tree
+			</a>
+			∙
+			<a
+				href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
+				class="underline hover:text-foreground"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Svelte Integration
+			</a>
+		</p>
 	</div>
 </div>

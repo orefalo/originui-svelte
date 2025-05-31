@@ -130,7 +130,7 @@
 	</div>
 
 	<div>
-		<Tree {indent} tree={tree.current}>
+		<Tree {indent} {tree}>
 			{#each tree.current.getItems() as item (item.getId())}
 				<TreeItem {item}>
 					<TreeLabel>
@@ -150,4 +150,24 @@
 			{/each}
 		</Tree>
 	</div>
+	<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+		Tree with search highlight ∙
+		<a
+			href="https://headless-tree.lukasbach.com"
+			class="underline hover:text-foreground"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Headless Tree
+		</a>
+		∙
+		<a
+			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
+			class="underline hover:text-foreground"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Svelte Integration
+		</a>
+	</p>
 </div>
