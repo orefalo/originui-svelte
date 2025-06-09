@@ -40,10 +40,12 @@
 				return { layout: 'default', style: 'centered' };
 			case 'inputs':
 				return { layout: 'default', style: 'centered' };
+			case 'navbars':
+				return { layout: 'full', style: 'default' };
 			case 'notifications':
 				return { layout: 'wide', style: 'centered' };
 			case 'paginations':
-				return { layout: 'wide', style: 'default' };
+				return { layout: 'wide', overflow: true, style: 'default' };
 			case 'popovers':
 				return { layout: 'default', style: 'centered' };
 			case 'radios':
