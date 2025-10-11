@@ -29,6 +29,9 @@ importers:
       '@fontsource/jetbrains-mono':
         specifier: ^5.2.6
         version: 5.2.6
+      '@headless-tree/core':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@internationalized/date':
         specifier: ^3.8.2
         version: 3.8.2
@@ -62,6 +65,9 @@ importers:
       svelte-tel-input:
         specifier: ^3.6.0
         version: 3.6.0(svelte@5.33.18)
+      svelte-toolbelt:
+        specifier: ^0.9.1
+        version: 0.9.1(svelte@5.30.2)
       tailwind-merge:
         specifier: ^3.3.0
         version: 3.3.0
@@ -826,6 +832,9 @@ packages:
 
   '@fontsource/jetbrains-mono@5.2.6':
     resolution: {integrity: sha512-nz//dBr99hXZmHp10wgNI00qThWImkzRR5PQjvRM+rpmuHO5rYBJCqPPWufidCvmkkryXx/GOP/lgqsM3R3Org==}
+
+  '@headless-tree/core@1.0.1':
+    resolution: {integrity: sha512-HbkveX2B5jltHS+90uTgD1CrgTEexjszff4+PRB8onMnAFZJ/eYPGVHZF5sK2dui9dGmP5OwNYTP6r2YXGCe+w==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2748,6 +2757,8 @@ packages:
     peerDependencies:
       svelte: ^5.30.2
 
+      svelte: ^5.30.2
+
   svelte@5.33.18:
     resolution: {integrity: sha512-GVAhi8vi8pGne/wlEdnfWIJvSR9eKvEknxjfL5Sr8gQALiyk8Ey+H0lhUYLpjW+MrqgH9h4dgh2NF6/BTFprRg==}
     engines: {node: '>=18'}
@@ -3574,6 +3585,8 @@ snapshots:
   '@fontsource/dm-serif-display@5.2.6': {}
 
   '@fontsource/jetbrains-mono@5.2.6': {}
+
+  '@headless-tree/core@1.0.1': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -5500,12 +5513,9 @@ snapshots:
       style-to-object: 1.0.8
       svelte: 5.33.18
 
-  svelte-toolbelt@0.9.1(svelte@5.33.18):
     dependencies:
       clsx: 2.1.1
-      runed: 0.28.0(svelte@5.33.18)
       style-to-object: 1.0.8
-      svelte: 5.33.18
 
   svelte@5.33.18:
     dependencies:
