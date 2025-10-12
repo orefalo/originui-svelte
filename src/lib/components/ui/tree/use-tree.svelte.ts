@@ -98,6 +98,8 @@ export class ReactiveTree<T> {
 		};
 
 		this.#tree = createTree(configWithFeatures);
+		this.#tree.setMounted(true)
+		this.#tree.rebuildTree()
 
 		this.#subscribe = createSubscriber((update) => {
 			// Store the original methods
