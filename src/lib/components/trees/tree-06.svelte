@@ -79,9 +79,9 @@
 							<span class="flex items-center gap-2">
 								{#if item.isFolder()}
 									{#if item.isExpanded()}
-										<FolderOpenIcon class="pointer-events-none size-4 text-muted-foreground" />
+										<FolderOpenIcon class="text-muted-foreground pointer-events-none size-4" />
 									{:else}
-										<FolderIcon class="pointer-events-none size-4 text-muted-foreground" />
+										<FolderIcon class="text-muted-foreground pointer-events-none size-4" />
 									{/if}
 								{/if}
 
@@ -90,7 +90,7 @@
 									<input
 										{...attacher}
 										{...rest}
-										class="flex h-6 w-full rounded-lg border border-input bg-background px-1 py-0 text-sm text-foreground shadow-sm shadow-black/5 transition-shadow placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/20 disabled:cursor-not-allowed disabled:opacity-50"
+										class="border-input bg-background text-foreground placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-ring/20 flex h-6 w-full rounded-lg border px-1 py-0 text-sm shadow-sm shadow-black/5 transition-shadow focus-visible:ring-[3px] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
 									/>
 								{:else}
 									{item.getItemName()}
@@ -102,11 +102,11 @@
 			{/each}
 		</Tree>
 	</div>
-	<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+	<p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-xs">
 		Tree with renaming (press F2 to rename) ∙
 		<a
 			href="https://headless-tree.lukasbach.com"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
@@ -115,7 +115,7 @@
 		∙
 		<a
 			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>

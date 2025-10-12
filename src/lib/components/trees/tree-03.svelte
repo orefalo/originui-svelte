@@ -67,17 +67,17 @@
 			{#each tree.current.getItems() as item (item.getId())}
 				<TreeItem {item}>
 					<TreeLabel
-						class="relative before:absolute before:-inset-y-0.5 before:inset-x-0 before:-z-10 before:bg-background"
+						class="before:bg-background relative before:absolute before:inset-x-0 before:-inset-y-0.5 before:-z-10"
 					>
 						<span class="flex items-center gap-2">
 							{#if item.isFolder()}
 								{#if item.isExpanded()}
-									<FolderOpenIcon class="pointer-events-none size-4 text-muted-foreground" />
+									<FolderOpenIcon class="text-muted-foreground pointer-events-none size-4" />
 								{:else}
-									<FolderIcon class="pointer-events-none size-4 text-muted-foreground" />
+									<FolderIcon class="text-muted-foreground pointer-events-none size-4" />
 								{/if}
 							{:else}
-								<FileIcon class="pointer-events-none size-4 text-muted-foreground" />
+								<FileIcon class="text-muted-foreground pointer-events-none size-4" />
 							{/if}
 
 							{item.getItemName()}
@@ -87,11 +87,11 @@
 			{/each}
 		</Tree>
 	</div>
-	<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+	<p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-xs">
 		Basic tree with icons ∙
 		<a
 			href="https://headless-tree.lukasbach.com"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
@@ -100,7 +100,7 @@
 		∙
 		<a
 			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>

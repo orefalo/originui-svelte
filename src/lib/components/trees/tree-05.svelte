@@ -98,9 +98,9 @@
 						<span class="flex items-center gap-2">
 							{#if item.isFolder()}
 								{#if item.isExpanded()}
-									<FolderOpenIcon class="pointer-events-none size-4 text-muted-foreground" />
+									<FolderOpenIcon class="text-muted-foreground pointer-events-none size-4" />
 								{:else}
-									<FolderIcon class="pointer-events-none size-4 text-muted-foreground" />
+									<FolderIcon class="text-muted-foreground pointer-events-none size-4" />
 								{/if}
 							{/if}
 
@@ -112,11 +112,11 @@
 			<TreeDragLine />
 		</Tree>
 	</div>
-	<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+	<p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-xs">
 		Tree with multi-select and drag and drop ∙
 		<a
 			href="https://headless-tree.lukasbach.com"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
@@ -125,7 +125,7 @@
 		∙
 		<a
 			href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
-			class="underline hover:text-foreground"
+			class="hover:text-foreground underline"
 			target="_blank"
 			rel="noopener noreferrer"
 		>

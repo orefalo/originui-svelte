@@ -64,16 +64,16 @@
 			{#each tree.current.getItems() as item (item.getId())}
 				<TreeItem {item}>
 					<TreeLabel
-						class="relative before:absolute before:-inset-y-0.5 before:inset-x-0 before:-z-10 before:bg-background"
+						class="before:bg-background relative before:absolute before:inset-x-0 before:-inset-y-0.5 before:-z-10"
 					/>
 				</TreeItem>
 			{/each}
 		</Tree>
-		<p aria-live="polite" role="region" class="mt-2 text-xs text-muted-foreground">
+		<p aria-live="polite" role="region" class="text-muted-foreground mt-2 text-xs">
 			Basic tree with vertical lines ∙
 			<a
 				href="https://headless-tree.lukasbach.com"
-				class="underline hover:text-foreground"
+				class="hover:text-foreground underline"
 				target="_blank"
 				rel="noopener noreferrer"
 			>
@@ -82,7 +82,7 @@
 			∙
 			<a
 				href="https://github.com/max-got/originui-svelte/blob/main/src/lib/components/ui/tree/use-tree.svelte.ts"
-				class="underline hover:text-foreground"
+				class="hover:text-foreground underline"
 				target="_blank"
 				rel="noopener noreferrer"
 			>

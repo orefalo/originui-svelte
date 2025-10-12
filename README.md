@@ -227,7 +227,6 @@ The project uses an automated component registry system that connects your compo
    ```
 
    This script automatically:
-
    - Scans the `src/lib/components/` directory
    - Generates `src/lib/componentRegistry.types.ts` with component mappings
    - Updates component type definitions and directory structures
@@ -256,7 +255,6 @@ The project uses an automated component registry system that connects your compo
    ```
 
 3. **How It Works**
-
    - The registry system creates a type-safe mapping between:
      - Component files in your directories
      - URL routes and parameters
@@ -301,7 +299,6 @@ The project includes an automated dependency detection system that analyzes comp
 2. **Adding New Dependencies**
 
    To add a new dependency:
-
    1. Open `src/lib/constants.ts`
    2. Add an entry to `POSSIBLE_DEPENDENCIES`:
       ```typescript
@@ -317,14 +314,12 @@ The project includes an automated dependency detection system that analyzes comp
 3. **How It Works**
 
    The system (`src/lib/utils/handleComponentSource.ts`):
-
    - Scans component source code for imports
    - Matches imports against `POSSIBLE_DEPENDENCIES`
    - Generates installation commands
    - Adds dependency information to component metadata
 
 4. **Special Cases**
-
    - Enhanced Images:
 
      ```typescript
@@ -341,7 +336,6 @@ The project includes an automated dependency detection system that analyzes comp
 5. **Integration**
 
    The system integrates with:
-
    - Component API endpoints
    - Documentation generation
    - Development tooling
@@ -356,7 +350,6 @@ The project includes an automated dependency detection system that analyzes comp
 ### Component Guidelines
 
 - 1\. **Component Organization**
-
   - 1.1\. **Base (`/ui`) components**
 
     Base components are in the `src/lib/components/ui` folder.
@@ -397,7 +390,6 @@ The project includes an automated dependency detection system that analyzes comp
     ```
 
 2. **Component Requirements**
-
    - Resemble the original component as closely as possible
    - If there is a "better" way to implement the component, use that
    - Use Svelte 5 runes for state management
@@ -414,7 +406,6 @@ The project includes an automated dependency detection system that analyzes comp
 ### Pull Request Process
 
 1. **Before Starting**
-
    - Check existing issues and PRs to avoid duplicate work
    - For new features, open an issue for discussion first
    - Fork the repository and create a feature branch:
@@ -423,7 +414,6 @@ The project includes an automated dependency detection system that analyzes comp
      ```
 
 2. **Component Development**
-
    - Follow the component organization guidelines
    - Place components in appropriate directories
    - Use the correct naming convention:
@@ -435,7 +425,6 @@ The project includes an automated dependency detection system that analyzes comp
    - Run `pnpm generate:registry` after adding/modifying components
 
 3. **Quality Checklist**
-
    - [ ] Component matches original design
    - [ ] Svelte 5 runes used correctly
    - [ ] TypeScript types are complete
@@ -447,12 +436,10 @@ The project includes an automated dependency detection system that analyzes comp
    - [ ] Linting passes (`pnpm lint`)
 
 4. **Route Configuration**
-
    - For existing categories:
      - Ensure component follows naming pattern
 
 5. **Documentation**
-
    - Include example usage
 
 6. **Submitting the PR**
