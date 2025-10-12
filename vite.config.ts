@@ -13,10 +13,10 @@ export default defineConfig({
 		Icons({
 			compiler: 'svelte'
 		})
+	],
 
 	ssr: {
 		//https://github.com/lukasbach/headless-tree/issues/104
 		noExternal: ['@headless-tree/core']
-	},
-	]
+	}
 });
